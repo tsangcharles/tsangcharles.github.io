@@ -5,7 +5,7 @@ date: 2020-05-17
 description: Miscellaneous thoughts about my job for the past few years
 tags: data-science consulting career
 categories: career-advice
-giscus_comments: true
+giscus_comments: false
 ---
 
 I have been a (Data Science) consultant for the past 3 years, and I decided to transition out of consulting several months ago to take on a new challenge as a Data Scientist in the gaming industry; I can not possibly be happier with the change. Retrospectively I have met many amazing people over the past few years and they have greatly contributed to my personal development. I would like to take this opportunity to share some of my thoughts in terms of the pros and cons of consulting for any aspiring Data Scientist. 

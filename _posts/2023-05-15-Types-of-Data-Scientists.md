@@ -5,7 +5,7 @@ date: 2023-05-15
 description: Sharing my thoughts on different thoughts of Data Scientists
 tags: data-science career
 categories: advice
-giscus_comments: true
+giscus_comments: false
 ---
 
 I am delighted that aspired data scientists have told me that they have read my blog posts. Since it seems that people read my blog, I am writing another blog post to summarize the advice I often repeatedly give to job seekers.

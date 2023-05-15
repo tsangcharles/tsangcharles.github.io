@@ -5,7 +5,7 @@ date: 2019-09-23
 description: Math Behind Gradient Descent
 tags: machine-learning optimization AI
 categories: mathematics
-giscus_comments: true
+giscus_comments: false
 ---
 
 I first learned about gradient descent when I was in my "Calculus of Several Variables" course. I recall the Professor saying "a function F will decrease (locally) the quickiest along the direction of the gradient of F". It was not very clear how this was useful (possibly ever), but it proves to be a very useful practical result in computational mathematics. We shall visit this today.

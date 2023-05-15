@@ -5,7 +5,7 @@ date: 2021-02-14
 description: "Sharing my experience on reinforcement learning"
 tags: machine-learning AI
 categories: industry-experience
-giscus_comments: true
+giscus_comments: false
 ---
 
 Probably not. Reinforcement learning was popularized in the past decade due to the rise of AlphaGo, a computer program developed by Google DeepMind that is able to compete with World Champions in the game of Go. The performance of AlphaGo is astonishing, and soon after the success of the program, many machine learning practitioners became obsessed with the underlying algorithm (Deep Reinforcement Learning), with many attempts to recreate the success of AlphaGo in other applications in various fields. Most of these attempts are like trying to shoehorn the model into a problem. Should you really be using Reinforcement Learning?
