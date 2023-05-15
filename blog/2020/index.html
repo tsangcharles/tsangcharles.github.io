@@ -10,9 +10,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Should You Use Reinforcement Learning? | </title>
+    <title>2020 | </title>
     <meta name="author" content="Charles  Tsang">
-    <meta name="description" content="Sharing my experience on reinforcement learning">
+    <meta name="description" content="This is Charles Tsang's personal website.
+">
     <meta name="keywords" content="data science, machine learning, big data">
 
 
@@ -38,7 +39,7 @@
     <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;">
     
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="https://tsangcharles.github.io/blog/2021/reinforcement-learning/">
+    <link rel="canonical" href="https://tsangcharles.github.io/blog/2020/">
 
     <!-- Dark Mode -->
     
@@ -100,151 +101,28 @@
     <!-- Content -->
     <div class="container mt-5">
       
-        <!-- _layouts/post.html -->
-
-<div class="post">
+        <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Should You Use Reinforcement Learning?</h1>
-    <p class="post-meta">February 14, 2021</p>
-    <p class="post-tags">
-      <a href="/blog/2021"> <i class="fas fa-calendar fa-sm"></i> 2021 </a>
-        ·  
-        <a href="/blog/tag/machine-learning">
-          <i class="fas fa-hashtag fa-sm"></i> machine-learning</a>  
-          <a href="/blog/tag/ai">
-          <i class="fas fa-hashtag fa-sm"></i> AI</a>  
-          
-        ·  
-        <a href="/blog/category/industry-experience">
-          <i class="fas fa-tag fa-sm"></i> industry-experience</a>  
-          
-
-    </p>
+    <h1 class="post-title"> <i class="fas fa-calendar fa-sm"></i> 2020 </h1>
+    <p class="post-description"> an archive of posts from this year </p>
   </header>
 
-  <article class="post-content">
-    
-    <div id="markdown-content">
-      <p>Probably not. Reinforcement learning was popularized in the past decade due to the rise of AlphaGo, a computer program developed by Google DeepMind that is able to compete with World Champions in the game of Go. The performance of AlphaGo is astonishing, and soon after the success of the program, many machine learning practitioners became obsessed with the underlying algorithm (Deep Reinforcement Learning), with many attempts to recreate the success of AlphaGo in other applications in various fields. Most of these attempts are like trying to shoehorn the model into a problem. Should you really be using Reinforcement Learning?</p>
-
-<div class="row mt-3">
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/reinforcement_learning/alphago-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/reinforcement_learning/alphago-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/reinforcement_learning/alphago-1400.webp"></source>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/reinforcement_learning/alphago.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-    </div>
-</div>
-
-<p>I have personally developed several reinforcement learning models deployed for production in my career and will be sharing some of my thoughts here. The purpose of this article is not to serve as a technical primer to reinforcement learning; I would like to share some practical experience with Reinforcement learning.</p>
-
-<h3 id="how-i-think-of-rl">How I think of RL</h3>
-
-<p>There are few ways to think of a reinforcement learning model. One can start off as a Markov Decision Process and frame it as a dynamic programming problem; this approach can help understand the underlying problem RL tries to solve, but it is not practical enough to see the limitations of RL in practice.</p>
-
-<div class="row mt-3">
-    <div class="col-sm mt-3 mt-md-0">
-        <figure>
-
-  <picture>
-    
-    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/reinforcement_learning/reinforcement-learning-fig1-700-480.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/reinforcement_learning/reinforcement-learning-fig1-700-800.webp"></source>
-    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/reinforcement_learning/reinforcement-learning-fig1-700-1400.webp"></source>
-    
-
-    <!-- Fallback to the original file -->
-    <img src="/assets/img/reinforcement_learning/reinforcement-learning-fig1-700.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-
-  </picture>
-
-</figure>
-
-    </div>
-</div>
-
-<p>After some experience of developing the RL model, I have developed the following mindset: A (Deep) Reinforcement learning model consists of a \(Q\) function (often a supervised learning model like Neural Network), with the difference being in its update rule:</p>
-
-\[Q\left(s,a\right) = r\left(s,a\right) + \gamma \max_{a} Q\left(s^{'},a\right)\]
-
-<p>I tend to think of RL as like a supervised learning model (but not really), with incremental (online) updates by using the update rule. This sounds like a direct improvement of supervised learning, but is it really? I say it is debatable, but let me list out some further caveats.</p>
-
-<h3 id="you-are-going-to-need-a-good-simulation">You are going to need a good simulation</h3>
-<p>This point here is enough to cripple a RL project. In order for a RL model to learn offline, you will need a lot of data. Data usually comes from simulation, as historical data are highly biased.</p>
-
-<p>For example, one of the projects I was involved with was a RL application for collections treatment in a bank. The historical data we fed in consisted the 
-\(\left(s,a,r,s^{'}\right)\)
-state, action, reward, next state tuple, but what would happen if we take an alternative action \(\alpha\) that is different from \(a\)? Well, that is very hard to say unless we have the historical data for that same customer but different action taken. The simulation environment created may not be very accurate to reflect the customer’s future state \(s^{'}\) based on action \(\alpha\) which did not take place.</p>
-
-<p>This is different from what most people have encountered during their RL adventure with OpenAI Gym library, it contains lots of preloaded simulation environments.</p>
-
-<h3 id="how-to-define-reward-function">How to define reward function?</h3>
-<p>Defining a good reward function is not easy. Depending on how reward function is defined, RL agents can behave vastly different. Simulations can help with selecting reward function, but this puts heavy reliance once again on the accuracy of simulation system.</p>
-
-<h2 id="conclusion">Conclusion</h2>
-<p>You most likely do not need reinforcement learning. RL is meant for a very specific type of problem. My recommendation is never to take a technology and look for a problem, as that may create unnecessary complications. There are also many deployment complications that are outside of scope from this article. You are probably better off using other machine learning techniques.</p>
-
+  <article>
+    <div class="table-responsive">
+      <table class="table table-sm table-borderless">
+        
+        <tr>
+          <th scope="row">May 17, 2020</th>
+          <td>
+              <a class="post-link" href="/blog/2020/Thoughts-about-Consulting/">Sharing my Thoughts on (Data Science) Consulting</a>
+          </td>
+        </tr>
+      
+      </table>
     </div>
   </article>
 
-
-  
-    
-    <br>
-    <hr>
-    <br>
-    <ul class="list-disc pl-8"></ul>
-
-    <!-- Adds related posts to the end of an article -->
-    <h2 class="text-3xl font-semibold mb-4 mt-12">Enjoy Reading This Article?</h2>
-    <p class="mb-2">Here are some more articles you might like to read next:</p>
-  
-
-  <li class="my-2">
-    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2020/Thoughts-about-Consulting/">Sharing my Thoughts on (Data Science) Consulting</a>
-  </li>
-
-<div id="giscus_thread" style="max-width: 800px; margin: 0 auto;">
-  <script>
-    let giscusTheme = localStorage.getItem("theme");
-    let giscusAttributes = {
-        "src": "https://giscus.app/client.js",
-        "data-repo": "alshedivat/al-folio",
-        "data-repo-id": "MDEwOlJlcG9zaXRvcnk2MDAyNDM2NQ==",
-        "data-category": "Comments",
-        "data-category-id": "DIC_kwDOA5PmLc4CTBt6",
-        "data-mapping": "title",
-        "data-strict": "1",
-        "data-reactions-enabled": "1",
-        "data-emit-metadata": "0",
-        "data-input-position": "bottom",
-        "data-theme": giscusTheme,
-        "data-lang": "en",
-        "crossorigin": "anonymous",
-        "async": "",
-    };
-
-
-    let giscusScript = document.createElement("script");
-    Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value));
-    document.getElementById("giscus_thread").appendChild(giscusScript);
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="http://giscus.app/?ref_noscript" rel="external nofollow noopener" target="_blank">comments powered by giscus.</a>
-</noscript>
-</div>
 </div>
 
       
