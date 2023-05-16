@@ -1,9 +1,9 @@
 ---
 layout: page
 title: Playing with Cloud
-description: Examining Cloud Services
+description: Examining Cloud Services (Slightly Outdated)
 img: assets/img/cloud/happy-cloud.jpg
-importance: 2
+importance: 3
 category: data-science
 ---
 
