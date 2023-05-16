@@ -3,7 +3,7 @@ layout: page
 title: Liar's Dice
 description: A Quick Demo for Analyzing Liar's Game
 img: assets/img/liarsdice/dice.jpg
-importance: 2
+importance: 4
 category: fun
 ---
 
