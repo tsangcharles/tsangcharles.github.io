@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Being a Data Scientist
+title: Different types of Data Scientist
 date: 2023-05-15
-description: Sharing my thoughts on different thoughts of Data Scientists
+description: Sharing my thoughts on different thoughts of types of Data Scientists
 tags: data-science career
 categories: advice
 giscus_comments: false
