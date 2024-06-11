@@ -16,7 +16,7 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-Charles is a Senior Data Scientist at Instagram (Meta) and a Data Science Lecturer at the [Master of Mathematical Finance program](https://www.mmf.utoronto.ca/) at the University of Toronto. Charles has also previously worked in Zynga, EY, KPMG, and Scotiabank. 
+Charles is a Data Scientist working in a Insurtech startup, and a Data Science Lecturer at the [Master of Mathematical Finance program](https://www.mmf.utoronto.ca/) at the University of Toronto. Charles has also previously worked in Instagram (Meta), Zynga, EY, KPMG, and Scotiabank. 
 
 Besides work, Charles is a big fan of Pokemon and Digimon. He enjoys playing Pokemon and Digimon Trading card games. In his free time, he also enjoys playing with yoyos and rockclimbing.
 
