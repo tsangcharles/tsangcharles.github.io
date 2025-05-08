@@ -24,7 +24,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Charles works as a Data Scientist, and is also a Data Science Lecturer at the [Master of Mathematical Finance program](https://www.mmf.utoronto.ca/) at the University of Toronto. Charles has previously worked in Instagram (Meta), Zynga, EY, and KPMG. 
+Charles works as a Data Scientist, and is also a Data Science Lecturer for the [Master of Mathematical Finance program](https://www.mmf.utoronto.ca/) at the University of Toronto. Charles has previously worked in Instagram (Meta), Zynga, EY, and KPMG. 
 
 Besides work, Charles is a big fan of Pokemon and Digimon. He enjoys playing Pokemon and Digimon Trading card games. In his free time, he also enjoys playing with yoyos and rockclimbing.
 
