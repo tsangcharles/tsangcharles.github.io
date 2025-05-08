@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head -->
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <!-- Metadata, OpenGraph and Schema.org -->
+
+
+
+
+<!-- Standard metadata -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>
+  
+  
+    
+      Liar's Dice | Charles Tsang
+    
+  
+</title>
+<meta name="author" content="Charles Tsang">
+<meta name="description" content="A Quick Demo for Analyzing Liar's Game">
+
+  <meta name="keywords" content="data science, machine learning, big data, software engineering">
+
+
+
+
+
+
+
+
+
+
+<!-- Bootstrap & MDB -->
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css?b05f9a0b7405d7c8c89c7465593dea81">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous">
+
+
+
+<!-- Fonts & Icons -->
+<link defer rel="stylesheet" href="/assets/css/academicons.min.css?dadeb9c5d1fd12bc8d37475657446863">
+<link defer rel="stylesheet" href="/assets/css/scholar-icons.css?1fefb6021bf36010f25ea1cef24af84e">
+<link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap">
+
+<!-- Code Syntax Highlighting -->
+<link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?53a094b51ed1d1e025731eb00d240058" media="" id="highlight_theme_light">
+
+
+
+<!-- Styles -->
+
+
+
+
+  <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;">
+
+<link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e">
+<link rel="canonical" href="http://0.0.0.0:8080/projects/2019-04-27-Liars-Dice/">
+
+<!-- Dark Mode -->
+<script src="/assets/js/theme.js?f2531f05c6f8e1622518f4f5a1e385b1"></script>
+
+  <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?46af317e693b09921dcb92261d123fbc" media="none" id="highlight_theme_dark">
+  <script>
+    initTheme();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  </head>
+
+  <!-- Body -->
+  <body class="fixed-top-nav ">
+    <!-- Header -->
+    <header>
+  <!-- Nav Bar -->
+  <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation">
+    <div class="container">
+      
+        <a class="navbar-brand title font-weight-lighter" href="/">
+          
+            
+              <span class="font-weight-bold">Charles</span>
+            
+            
+            Tsang
+          
+        </a>
+      
+      <!-- Navbar Toggle -->
+      <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar top-bar"></span>
+        <span class="icon-bar middle-bar"></span>
+        <span class="icon-bar bottom-bar"></span>
+      </button>
+
+      <div class="collapse navbar-collapse text-right" id="navbarNav">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+          
+
+          <!-- About -->
+          <li class="nav-item ">
+            <a class="nav-link" href="/">about
+              
+            </a>
+          </li>
+
+          <!-- Other pages -->
+          
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  <a class="nav-link" href="/blog/">blog
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+          
+            
+              
+                
+                <li class="nav-item active">
+                  <a class="nav-link" href="/projects/">projects
+                    
+                      <span class="sr-only">(current)</span>
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  <a class="nav-link" href="/repositories/">repositories
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  <a class="nav-link" href="/teaching/">teaching
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+          
+            
+          
+          
+          
+            <!-- Toogle theme mode -->
+            <li class="toggle-container">
+              <button id="light-toggle" title="Change theme">
+                <i class="ti ti-sun-moon" id="light-toggle-system"></i>
+                <i class="ti ti-moon-filled" id="light-toggle-dark"></i>
+                <i class="ti ti-sun-filled" id="light-toggle-light"></i>
+              </button>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+    <!-- Scrolling Progress Bar -->
+    <progress id="progress" value="0">
+      <div class="progress-container">
+        <span class="progress-bar"></span>
+      </div>
+    </progress>
+  
+</header>
+
+
+    <!-- Content -->
+    <div class="container mt-5" role="main">
+      
+        
+
+<div class="post">
+  <header class="post-header">
+    <h1 class="post-title">Liar's Dice</h1>
+    <p class="post-description">A Quick Demo for Analyzing Liar's Game</p>
+  </header>
+
+  <article>
+    <p>This is a brief analysis of the popular drinking game Liar’s Dice. Whenever I 
+attend karaoke events and I am invited to play this drinking game, people often say “Charles, stop calculating”, just because I study mathematics. The truth is I never
+thought about performing any calculations; I just want to have a good time. However, 
+ typical stereotype has encouraged me to start exploring and analyzing this game.</p>
+
+<h2 id="game-introduction">Game Introduction</h2>
+
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-3 mt-md-0">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      
+        <source class="responsive-img-srcset" srcset="/assets/img/liarsdice/dice-480.webp 480w,/assets/img/liarsdice/dice-800.webp 800w,/assets/img/liarsdice/dice-1400.webp 1400w," type="image/webp" sizes="95vw"></source>
+      
+    
+    <img src="/assets/img/liarsdice/dice.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+    </div>
+</div>
+
+<p>For those who are experts in this game, feel free to skip this section.</p>
+
+<p>I will first explain some game rules and assumptions for this analysis. The game consists of
+\(n &gt; 1\) players and each player has a cup with 5 dice in their cup. Initially,
+each player will shake their dice in their nontransparent cups, hiding the results from other players. Subsequently, a player starts guessing the number of dice that is present at an
+aggregate level. For example, a player can say “3 three’s” to indicate that he/she believes
+there is at least a total of three 3’s amongst the n players, including oneself. The next player
+can choose to believe that it is the truth or they can doubt it. In the case the next player believes
+there are three 3’s, then the player must continue guessing the number of dice present on
+aggregate, with the rule that either the number of dice or the face value (or both) must be bigger than the previous claim. For example, if player 1 says \(n_1\) \(m_1\)’s, if player 2 believes,
+then player 2 must say \(n_2\) \(m_2\)’s where \(n_2&gt;n_1\) or \(m_2&gt;m_1\). For example, if player 1 calls 2 3’s, then player 2 calls a raise on the quantity of 3’s (3 3’s or more) or call a raise on the face value of the dice (2 4’s or 2 5’s or 2 6’s).</p>
+
+<p>The game continues in this fashion
+until a player refuses to believe the previous claim, at which everyone reveals their dice count for
+the truth. If the claim is correct, the last person has to drink, otherwise the previous player drinks.</p>
+
+<p>In this gameplay, there are several special rules:</p>
+<ul>
+  <li>1 is a wild card that can be counted as any value. For example, if someone says three 3’s, we also count the 1 as a 3.</li>
+  <li>No one will have 5 distinct dice. If one rolls 5 distinct dice, they must reroll. They have 2 chances to reroll
+before it is considered as a lost and they have to drink.</li>
+  <li>If one has 5 of the same dice (it can include 1’s, say someone has the outcome 5,5,5,1,1), it is counted 
+as an outcome of 6. (For the example, it would mean they have five 5’s)</li>
+</ul>
+
+<p>There are additional game rules that will affect the operations of this game, but to analyze
+the probabilities, this basic set would suffice. For a more comprehensive set, please check out
+<a href="https://en.wikipedia.org/wiki/Liar%27s_dice" rel="external nofollow noopener" target="_blank">Liar’s Dice</a></p>
+
+<h2 id="approach">Approach</h2>
+
+<p>In a \(n\) player game, you can see your dice rolls, so you would be interested in the probability
+of the counts of other \(n-1\) players’ rolls. In particular, we have created a demo <a href="https://github.com/tsangcharles/liars-dice/blob/master/calculations.ipynb" rel="external nofollow noopener" target="_blank">notebook</a> to calculate the probabilities. The approach uses Monte Carlo simulations to estimate the probabilities
+of interest. The reasons why binomial (or multinomial) distribution is not used for calculations is that the number of outcomes is not a
+binomial (or multinomial) problem; rules number 2 and 3 above make the probability non-binomial (or non-multinomial).</p>
+
+<h2 id="results">Results</h2>
+
+<p>We present the results for when there are n opponents, \(1&lt;= n&lt;= 6\).</p>
+
+<h3 id="1-opponent">1 Opponent</h3>
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-3 mt-md-0">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      
+        <source class="responsive-img-srcset" srcset="/assets/img/liarsdice/onesprob1p-480.webp 480w,/assets/img/liarsdice/onesprob1p-800.webp 800w,/assets/img/liarsdice/onesprob1p-1400.webp 1400w," type="image/webp" sizes="95vw"></source>
+      
+    
+    <img src="/assets/img/liarsdice/onesprob1p.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+    </div>
+</div>
+
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-3 mt-md-0">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      
+        <source class="responsive-img-srcset" srcset="/assets/img/liarsdice/notonesprob1p-480.webp 480w,/assets/img/liarsdice/notonesprob1p-800.webp 800w,/assets/img/liarsdice/notonesprob1p-1400.webp 1400w," type="image/webp" sizes="95vw"></source>
+      
+    
+    <img src="/assets/img/liarsdice/notonesprob1p.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+    </div>
+</div>
+
+<h3 id="2-opponents">2 Opponents</h3>
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-3 mt-md-0">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      
+        <source class="responsive-img-srcset" srcset="/assets/img/liarsdice/onesprob2p-480.webp 480w,/assets/img/liarsdice/onesprob2p-800.webp 800w,/assets/img/liarsdice/onesprob2p-1400.webp 1400w," type="image/webp" sizes="95vw"></source>
+      
+    
+    <img src="/assets/img/liarsdice/onesprob2p.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+    </div>
+</div>
+
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-3 mt-md-0">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      
+        <source class="responsive-img-srcset" srcset="/assets/img/liarsdice/notonesprob2p-480.webp 480w,/assets/img/liarsdice/notonesprob2p-800.webp 800w,/assets/img/liarsdice/notonesprob2p-1400.webp 1400w," type="image/webp" sizes="95vw"></source>
+      
+    
+    <img src="/assets/img/liarsdice/notonesprob2p.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+    </div>
+</div>
+
+<h3 id="3-opponents">3 Opponents</h3>
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-3 mt-md-0">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      
+        <source class="responsive-img-srcset" srcset="/assets/img/liarsdice/onesprob3p-480.webp 480w,/assets/img/liarsdice/onesprob3p-800.webp 800w,/assets/img/liarsdice/onesprob3p-1400.webp 1400w," type="image/webp" sizes="95vw"></source>
+      
+    
+    <img src="/assets/img/liarsdice/onesprob3p.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+    </div>
+</div>
+
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-3 mt-md-0">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      
+        <source class="responsive-img-srcset" srcset="/assets/img/liarsdice/notonesprob3p-480.webp 480w,/assets/img/liarsdice/notonesprob3p-800.webp 800w,/assets/img/liarsdice/notonesprob3p-1400.webp 1400w," type="image/webp" sizes="95vw"></source>
+      
+    
+    <img src="/assets/img/liarsdice/notonesprob3p.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+    </div>
+</div>
+
+<h3 id="4-opponents">4 Opponents</h3>
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-3 mt-md-0">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      
+        <source class="responsive-img-srcset" srcset="/assets/img/liarsdice/onesprob4p-480.webp 480w,/assets/img/liarsdice/onesprob4p-800.webp 800w,/assets/img/liarsdice/onesprob4p-1400.webp 1400w," type="image/webp" sizes="95vw"></source>
+      
+    
+    <img src="/assets/img/liarsdice/onesprob4p.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+    </div>
+</div>
+
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-3 mt-md-0">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      
+        <source class="responsive-img-srcset" srcset="/assets/img/liarsdice/notonesprob4p-480.webp 480w,/assets/img/liarsdice/notonesprob4p-800.webp 800w,/assets/img/liarsdice/notonesprob4p-1400.webp 1400w," type="image/webp" sizes="95vw"></source>
+      
+    
+    <img src="/assets/img/liarsdice/notonesprob4p.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+    </div>
+</div>
+
+<h3 id="5-opponents">5 Opponents</h3>
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-3 mt-md-0">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      
+        <source class="responsive-img-srcset" srcset="/assets/img/liarsdice/onesprob5p-480.webp 480w,/assets/img/liarsdice/onesprob5p-800.webp 800w,/assets/img/liarsdice/onesprob5p-1400.webp 1400w," type="image/webp" sizes="95vw"></source>
+      
+    
+    <img src="/assets/img/liarsdice/onesprob5p.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+    </div>
+</div>
+
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-3 mt-md-0">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      
+        <source class="responsive-img-srcset" srcset="/assets/img/liarsdice/notonesprob5p-480.webp 480w,/assets/img/liarsdice/notonesprob5p-800.webp 800w,/assets/img/liarsdice/notonesprob5p-1400.webp 1400w," type="image/webp" sizes="95vw"></source>
+      
+    
+    <img src="/assets/img/liarsdice/notonesprob5p.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+    </div>
+</div>
+
+<h3 id="6-opponents">6 Opponents</h3>
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-3 mt-md-0">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      
+        <source class="responsive-img-srcset" srcset="/assets/img/liarsdice/onesprob6p-480.webp 480w,/assets/img/liarsdice/onesprob6p-800.webp 800w,/assets/img/liarsdice/onesprob6p-1400.webp 1400w," type="image/webp" sizes="95vw"></source>
+      
+    
+    <img src="/assets/img/liarsdice/onesprob6p.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+    </div>
+</div>
+
+<div class="row justify-content-sm-center">
+    <div class="col-sm-8 mt-3 mt-md-0">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      
+        <source class="responsive-img-srcset" srcset="/assets/img/liarsdice/notonesprob6p-480.webp 480w,/assets/img/liarsdice/notonesprob6p-800.webp 800w,/assets/img/liarsdice/notonesprob6p-1400.webp 1400w," type="image/webp" sizes="95vw"></source>
+      
+    
+    <img src="/assets/img/liarsdice/notonesprob6p.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="example image" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+    </div>
+</div>
+
+<h2 id="potential-future-work">Potential Future work</h2>
+<p>Issues for the current approach is that I am using a Monte Carlo simulation and I did not set a convergence threshold to wait for convergence. I have naively set the number of simulations to be 10,000. This causes some instability to the probabilities as can be seen within the notebook. 
+The proper way to perform a Monte Carlo simulation is to set a convergence tolerance. I did not do this due to the nature of the
+quick demo. Nonetheless, the results present a good proxy of the actual probabilities.</p>
+
+  </article>
+
+  
+
+  
+</div>
+
+      
+    </div>
+
+    <!-- Footer -->
+    
+
+
+  <footer class="fixed-bottom" role="contentinfo">
+    <div class="container mt-0">
+      
+  © Copyright 2025
+  Charles
+  
+  Tsang. 
+  
+  
+    Last updated: May 08, 2025.
+  
+
+    </div>
+  </footer>
+
+
+
+    <!-- JavaScripts -->
+    <!-- jQuery -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<!-- Bootsrap & MDB scripts -->
+<script src="/assets/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script>
+
+
+  <!-- Masonry & imagesLoaded -->
+  <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+  <script defer src="/assets/js/masonry.js?c999e8c5281874b7534e3352f835d4c3" type="text/javascript"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Medium Zoom JS -->
+  <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script>
+  <script defer src="/assets/js/zoom.js?b977fe0c21b2118ed853308b1b923969"></script>
+
+
+
+
+
+
+<!-- Load Common JS -->
+<script src="/assets/js/no_defer.js?699fa7cbe3b29f831db7d5250ba3203a"></script>
+<script defer src="/assets/js/common.js?d3a25b46bbd2e0a751a27b173abc6e5f"></script>
+<script defer src="/assets/js/copy_code.js?fff63901a03063094790ffbfd4bc0cb4" type="text/javascript"></script>
+
+<!-- Jupyter Open External Links New Tab -->
+<script defer src="/assets/js/jupyter_new_tab.js?25eff8ff4144a010e4ad7b31403102cf"></script>
+
+<!-- Badges -->
+
+  <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
+
+
+  <script async src="https://badge.dimensions.ai/badge.js"></script>
+
+
+
+  <!-- MathJax -->
+  <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script>
+  
+    <script src="/assets/js/mathjax-setup.js?04761245f225e3ad9e5e3f875d4e1074"></script>
+    <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script>
+  
+
+
+
+  <!-- Analytics -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0RG62MCQQX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-0RG62MCQQX');
+  </script>
+  <script defer src="/assets/js/google-analytics-setup.js"></script>
+
+
+
+
+
+
+
+  <!-- Scrolling Progress Bar -->
+  <script defer src="/assets/js/progress-bar.js?b78cb42895d74e4fd6de6f633edcf181" type="text/javascript"></script>
+
+
+
+
+
+
+
+  <!-- Back to Top -->
+  <script src="/assets/js/vanilla-back-to-top.min.js?f40d453793ff4f64e238e420181a1d17"></script>
+  <script>
+    addBackToTop();
+  </script>
+
+
+
+
+
+
+  </body>
+</html>

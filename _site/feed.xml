@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://0.0.0.0:8080/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:8080/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-05-08T21:15:26+00:00</updated><id>http://0.0.0.0:8080/feed.xml</id><title type="html">blank</title><subtitle>This is Charles Tsang&apos;s personal website.
+</subtitle><entry><title type="html">Different types of Data Scientist</title><link href="http://0.0.0.0:8080/blog/2023/Types-of-Data-Scientists/" rel="alternate" type="text/html" title="Different types of Data Scientist" /><published>2023-05-15T00:00:00+00:00</published><updated>2023-05-15T00:00:00+00:00</updated><id>http://0.0.0.0:8080/blog/2023/Types-of-Data-Scientists</id><content type="html" xml:base="http://0.0.0.0:8080/blog/2023/Types-of-Data-Scientists/"><![CDATA[<p>I am delighted that aspired data scientists have told me that they have read my blog posts. Since it seems that people read my blog, I am writing another blog post to summarize the advice I often repeatedly give to job seekers.</p>
+
+<h2 id="different-types-of-data-scientists">Different types of Data Scientists</h2>
+<p>The term data scientist is very vague and not well defined. I have seen many data scientists job postings that are machine learning engineer job postings in disguise. It is important to first understand what the job entails.</p>
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      
+        <source class="responsive-img-srcset" srcset="/assets/img/types_of_ds/surprised_pikachu-480.webp 480w,/assets/img/types_of_ds/surprised_pikachu-800.webp 800w,/assets/img/types_of_ds/surprised_pikachu-1400.webp 1400w," type="image/webp" sizes="95vw" />
+      
+    
+    <img src="/assets/img/types_of_ds/surprised_pikachu.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+  </picture>
+
+  
+</figure>
+
+    </div>
+</div>
+
+<p>I came across a <a href="https://towardsdatascience.com/ode-to-the-type-a-data-scientist-78d11456019">blog post</a> a while ago that defines two types of data scientists. Type A (for Analysis) and Type B (for build) data scientist and I agree with the distinction:</p>
+
+<blockquote>
+  <p>Type A Data Scientist: The A is for Analysis. This type is primarily concerned with making sense of data or working with it in a fairly static way. The Type A Data Scientist is very similar to a statistician (and maybe one) but knows all the practical details of working with data that aren’t taught in the statistics curriculum: data cleaning, methods for dealing with very large data sets, visualization, deep knowledge of a particular domain, writing well about data, and so on.</p>
+
+  <p>Type B Data Scientist: The B is for Building. Type B Data Scientists share some statistical background with Type A, but they are also very strong coders and may be trained software engineers. The Type B Data Scientist is mainly interested in using data “in production.” They build models that interact with users, often serving recommendations (products, people you may know, ads, movies, search results).</p>
+</blockquote>
+
+<p>Universities often produce statistics graduates who are trained in being a type A data scientist and most graduates tend to think that type A data scientist is the only kind. However, in reality, having a type A data scientist is a luxury to most companies as they are still focusing on data foundations. As companies become more data mature, they will hire more type A data scientists.</p>
+
+<p>Just to elaborate a bit more on each type:</p>
+
+<h3 id="type-a-data-scientist-traditional-data-scientists">Type A Data Scientist (Traditional Data Scientists)</h3>
+<p>These are the “traditional” kind of data scientists and are often what people think of when they say “data scientists”. They do data analysis and are individuals who consume data pipelines and produce actionable data-driven insights for business stakeholders. They skilled in drawing analytical insights from data by methods of exploratory data analysis and machine learning/statistical modeling. They are often the same as data analysts (with higher pay).</p>
+
+<h3 id="type-b-data-scientist-machine-learning-engineers">Type B Data Scientist (Machine Learning Engineers)</h3>
+<p>Type B data scientists are often called Machine Learning Engineers. Machine learning engineers are individuals who deploy machine learning applications into production as mentioned above. They are often a hybrid of data scientists, data engineers, and software engineers as well.</p>
+
+<p>A traditional statistics program would train type A data scientists (without the database skills), As a result, I encourage job seekers to explore whether they are more interested in performing data analysis (type A) or build machine learning softwares (type B), as they can dictate the skills job seekers may want to acquire.</p>
+
+<h3 id="1-be-big-data-enabled">1. Be Big-data-enabled</h3>
+<p>This is often the first advice I give to job seekers. Many job seekers have a great understanding of machine learning and have performed extensive data analysis on small data sets in CSV files using Pandas in Python as part of their course work. While Pandas is a great library in Python, it is not the most scalable tool in data science; in practice, most companies store their data in their database and SQL is the way to query most of these databases. Hence, being proficient in SQL is a must. Fortunately, SQL is not very difficult to pick up and most of what you do in Pandas has an analog in most SQL based languages, such as group by, where, join clauses.</p>
+
+<p>Another popular big data tool is Apache Spark. Spark offers an in-memory distributed computing framework; the most fundamental data structure in Spark is called an RDD (Resilient Distributed Dataset) and there is also a Dataframes framework which is an abstraction on RDD, very similar to Pandas data frames from a user’s perspective. Learning spark is more than simply learning the syntax; due to the complexity of distributed computing, it is also important to understand the underlying concepts such as partitioning, caching, narrow vs wide transformations for optimization purposes.</p>
+
+<h3 id="2-being-a-data-scientist-is-not-all-about-machine-learning">2. Being a data scientist is not all about machine learning</h3>
+<p>Being a data scientist is about drawing actionable insights from data. Machine learning is a tool to draw insights but should not be the primary focus for both type A and type B data scientists. It is great for data scientists to know machine learning, but it is not the core of data science. Most successful data science projects do not emphasize the technique, but the outcome. Therefore the most important part is to understand the pros and cons of each algorithm to optimize results.</p>
+
+<p>To further reinforce this idea, there are many auto ML algorithms out there to automate the machine learning model building process. This means data scientists of the future can focus more on drawing insights from data, as opposed to working on tedious tasks such as model selection and hyper-parameter tuning.</p>
+
+<h3 id="3-expect-to-learn-a-lot">3. Expect to learn a lot</h3>
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      
+        <source class="responsive-img-srcset" srcset="/assets/img/types_of_ds/pikachuwithshirt-480.webp 480w,/assets/img/types_of_ds/pikachuwithshirt-800.webp 800w,/assets/img/types_of_ds/pikachuwithshirt-1400.webp 1400w," type="image/webp" sizes="95vw" />
+      
+    
+    <img src="/assets/img/types_of_ds/pikachuwithshirt.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+  </picture>
+
+  
+</figure>
+
+    </div>
+</div>
+
+<p>The data science trend keeps on changing. Ten years ago everyone was obsessed with Neural Networks, deep learning, xgboost, and now there are many auto ML engines out there automating model selection. In terms of technology, distributed file storage systems like Hadoop have been very popular for the past decade, and in recent years, people have moved a lot of computing and storage onto various cloud services. In order to stay competitive in this market, one must keep up with the latest trend. I suggest that one should be very passionate about technology in order to succeed in the data science field or else learning can become dreadful.</p>]]></content><author><name></name></author><category term="advice" /><category term="data-science" /><category term="career" /><summary type="html"><![CDATA[Sharing my thoughts on different thoughts of types of Data Scientists]]></summary></entry><entry><title type="html">Should You Use Reinforcement Learning?</title><link href="http://0.0.0.0:8080/blog/2021/reinforcement-learning/" rel="alternate" type="text/html" title="Should You Use Reinforcement Learning?" /><published>2021-02-14T00:00:00+00:00</published><updated>2021-02-14T00:00:00+00:00</updated><id>http://0.0.0.0:8080/blog/2021/reinforcement-learning</id><content type="html" xml:base="http://0.0.0.0:8080/blog/2021/reinforcement-learning/"><![CDATA[<p>Probably not. Reinforcement learning was popularized in the past decade due to the rise of AlphaGo, a computer program developed by Google DeepMind that is able to compete with World Champions in the game of Go. The performance of AlphaGo is astonishing, and soon after the success of the program, many machine learning practitioners became obsessed with the underlying algorithm (Deep Reinforcement Learning), with many attempts to recreate the success of AlphaGo in other applications in various fields. Most of these attempts are like trying to shoehorn the model into a problem. Should you really be using Reinforcement Learning?</p>
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      
+        <source class="responsive-img-srcset" srcset="/assets/img/reinforcement_learning/alphago-480.webp 480w,/assets/img/reinforcement_learning/alphago-800.webp 800w,/assets/img/reinforcement_learning/alphago-1400.webp 1400w," type="image/webp" sizes="95vw" />
+      
+    
+    <img src="/assets/img/reinforcement_learning/alphago.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+  </picture>
+
+  
+</figure>
+
+    </div>
+</div>
+
+<p>I have personally developed several reinforcement learning models deployed for production in my career and will be sharing some of my thoughts here. The purpose of this article is not to serve as a technical primer to reinforcement learning; I would like to share some practical experience with Reinforcement learning.</p>
+
+<h3 id="how-i-think-of-rl">How I think of RL</h3>
+
+<p>There are few ways to think of a reinforcement learning model. One can start off as a Markov Decision Process and frame it as a dynamic programming problem; this approach can help understand the underlying problem RL tries to solve, but it is not practical enough to see the limitations of RL in practice.</p>
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      
+        <source class="responsive-img-srcset" srcset="/assets/img/reinforcement_learning/reinforcement-learning-fig1-700-480.webp 480w,/assets/img/reinforcement_learning/reinforcement-learning-fig1-700-800.webp 800w,/assets/img/reinforcement_learning/reinforcement-learning-fig1-700-1400.webp 1400w," type="image/webp" sizes="95vw" />
+      
+    
+    <img src="/assets/img/reinforcement_learning/reinforcement-learning-fig1-700.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+  </picture>
+
+  
+</figure>
+
+    </div>
+</div>
+
+<p>After some experience of developing the RL model, I have developed the following mindset: A (Deep) Reinforcement learning model consists of a \(Q\) function (often a supervised learning model like Neural Network), with the difference being in its update rule:</p>
+
+\[Q\left(s,a\right) = r\left(s,a\right) + \gamma \max_{a} Q\left(s^{'},a\right)\]
+
+<p>I tend to think of RL as like a supervised learning model (but not really), with incremental (online) updates by using the update rule. This sounds like a direct improvement of supervised learning, but is it really? I say it is debatable, but let me list out some further caveats.</p>
+
+<h3 id="you-are-going-to-need-a-good-simulation">You are going to need a good simulation</h3>
+<p>This point here is enough to cripple a RL project. In order for a RL model to learn offline, you will need a lot of data. Data usually comes from simulation, as historical data are highly biased.</p>
+
+<p>For example, one of the projects I was involved with was a RL application for collections treatment in a bank. The historical data we fed in consisted the 
+\(\left(s,a,r,s^{'}\right)\)
+state, action, reward, next state tuple, but what would happen if we take an alternative action \(\alpha\) that is different from \(a\)? Well, that is very hard to say unless we have the historical data for that same customer but different action taken. The simulation environment created may not be very accurate to reflect the customer’s future state \(s^{'}\) based on action \(\alpha\) which did not take place.</p>
+
+<p>This is different from what most people have encountered during their RL adventure with OpenAI Gym library, it contains lots of preloaded simulation environments.</p>
+
+<h3 id="how-to-define-reward-function">How to define reward function?</h3>
+<p>Defining a good reward function is not easy. Depending on how reward function is defined, RL agents can behave vastly different. Simulations can help with selecting reward function, but this puts heavy reliance once again on the accuracy of simulation system.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>You most likely do not need reinforcement learning. RL is meant for a very specific type of problem. My recommendation is never to take a technology and look for a problem, as that may create unnecessary complications. There are also many deployment complications that are outside of scope from this article. You are probably better off using other machine learning techniques.</p>]]></content><author><name></name></author><category term="industry-experience" /><category term="machine-learning" /><category term="AI" /><summary type="html"><![CDATA[Sharing my experience on reinforcement learning]]></summary></entry><entry><title type="html">Sharing my Thoughts on (Data Science) Consulting</title><link href="http://0.0.0.0:8080/blog/2020/Thoughts-about-Consulting/" rel="alternate" type="text/html" title="Sharing my Thoughts on (Data Science) Consulting" /><published>2020-05-17T00:00:00+00:00</published><updated>2020-05-17T00:00:00+00:00</updated><id>http://0.0.0.0:8080/blog/2020/Thoughts-about-Consulting</id><content type="html" xml:base="http://0.0.0.0:8080/blog/2020/Thoughts-about-Consulting/"><![CDATA[<p>I have been a (Data Science) consultant for the past 3 years, and I decided to transition out of consulting several months ago to take on a new challenge as a Data Scientist in the gaming industry; I can not possibly be happier with the change. Retrospectively I have met many amazing people over the past few years and they have greatly contributed to my personal development. I would like to take this opportunity to share some of my thoughts in terms of the pros and cons of consulting for any aspiring Data Scientist.</p>
+
+<p><strong>Overall, I would highly recommend anyone to work as a consultant as part of their career journey.</strong></p>
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      
+        <source class="responsive-img-srcset" srcset="/assets/img/consulting/pikachu-480.webp 480w,/assets/img/consulting/pikachu-800.webp 800w,/assets/img/consulting/pikachu-1400.webp 1400w," type="image/webp" sizes="95vw" />
+      
+    
+    <img src="/assets/img/consulting/pikachu.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+  </picture>
+
+  
+</figure>
+
+    </div>
+</div>
+
+<p><span style="color:#27ae60"><strong>PRO</strong></span> - Exposure</p>
+
+<p>I have grown tremendously in the past few years in terms of both my communication and technical skills. The opportunity to develop one’s communication skills is clear. As a consultant, we interact with client contacts regularly for progress updates, issue updates, and presenting our deliverables. The opportunity to develop one’s technical skills is also enormous. When I started as a data scientist who could only perform elementary data exploration and machine learning modeling, I had the opportunity to lead a data engineering/software development project (which I did not have any exposure of) as well as other kinds of projects. This eventually helped me grow to become a much more mature data analytics professional with the ability to develop end-to-end systems. The opportunity usually comes from consulting firms being short-staffed, and consultants need to wear multiple hats to deliver projects outside of their comfort zone.</p>
+
+<p>I have also had the opportunity to work on interesting projects. For example, in 2019 I worked on a reinforcement learning project for banking applications. It is often the case that clients require help in implementing the coolest state-of-the-art technology, but the opportunity depends on the direction of the consulting practice. If practice focuses on RPA, they may not get as much machine learning related projects. One should be careful before making their career choices.</p>
+
+<p>Furthermore, as we work with new clients every couple of months, we can gain a holistic view of the industry and able to pick up quickly best practices on many of the data science processes.</p>
+
+<p><span style="color:#27ae60"><strong>PRO</strong></span> - Hours</p>
+
+<p>There seems to be a lot of misconception that consultants work long hours. After being in two firms and being in different departments while assuming the roles of different levels, I highly disagree. While it is true that deliverables need to be presented to clients promptly, and most of the time we do not want to postpone deadlines, there would be some overtime at critical times and boss would call you at an ungodly hour to fix things, but it is not any busier than a normal non-consulting job. The reason why we hear consultants working long hours is due to their personality and that they are extremely vocal. It seems to be human nature they like to brag about long hours.</p>
+
+<p>The bottom line is, working on a deliverable is pretty much like a sprint (not in the agile sense). You go full speed on a deliverable for a few days and then you can relax for the rest of the week. There is also a lot of flexibility in how you want to manage your time as long as work is finished before the deadline.</p>
+
+<p><span style="color:#e74c3c"><strong>CON</strong></span> - People and Culture</p>
+
+<p>I have met numerous extremely unpleasant people during my 3 years as a consultant. Due to the extreme hierarchy of the firms I have had to opportunity to work in, the <strong>“pls fix”</strong> culture is very real. Many of the middle management simply cascade work even when they have nothing to work on, this is simply due to their pride in having the power to order people around. They do not provide any value and contribute deeply to the toxic culture and high turnover rates.</p>
+
+<p>As a conclusion, the pro for exposure can easily outweigh the con of people and culture in the short-run, and I would recommend jump-starting a data science career in consulting.</p>]]></content><author><name></name></author><category term="career-advice" /><category term="data-science" /><category term="consulting" /><category term="career" /><summary type="html"><![CDATA[Miscellaneous thoughts about my job for the past few years]]></summary></entry><entry><title type="html">How does Gradient Descent work?</title><link href="http://0.0.0.0:8080/blog/2019/Gradient-Descent/" rel="alternate" type="text/html" title="How does Gradient Descent work?" /><published>2019-09-23T00:00:00+00:00</published><updated>2019-09-23T00:00:00+00:00</updated><id>http://0.0.0.0:8080/blog/2019/Gradient-Descent</id><content type="html" xml:base="http://0.0.0.0:8080/blog/2019/Gradient-Descent/"><![CDATA[<p>I first learned about gradient descent when I was in my “Calculus of Several Variables” course. I recall the Professor saying “a function F will decrease (locally) the quickiest along the direction of the gradient of F”. It was not very clear how this was useful (possibly ever), but it proves to be a very useful practical result in computational mathematics. We shall visit this today.</p>
+
+<p>Let us start off with the basics. Recall that for a function \(f:\mathbb{R}^n \to \mathbb{R}\) is said to be differentiable at \(\vec{a}\in\mathbb{R}^n\) if there exists a linear transformation \(T:\mathbb{R}^n \to \mathbb{R}\) such that</p>
+
+\[\lim_{\vec{h}\to \vec{0}} \frac{|f\left(\vec{a}+\vec{h}\right) - f\left(\vec{a}\right) - T\left(\vec{a}\right)\vec{h}|}{|\vec{h}|} = 0\]
+
+<p>The linear transformation \(T\) is often called the derivative of \(f\) and is denoted as \(Df\). Since \(f\) is a scalar-valued function, the derivative can also be called the gradient and is denoted as \(\nabla f\).</p>
+
+<p>Given the function \(f\) is diffrentiable at a point \(a\), we can also define the directional derivative of the function \(f\) at a point \(\vec{a}\) in the direction of a unit vector \(\vec{u}\) to be</p>
+
+\[\frac{\partial f}{\partial \vec{u}}\left(a\right) = \lim_{h \to 0} \frac{f\left(\vec{a}+h\vec{u}\right)-f\left(\vec{a}\right)} {h}\]
+
+<p>One can easily show that this is equivalent to the matrix product or dot product \(\nabla f\left(\vec{a}\right)\cdot \vec{u}\).</p>
+
+<p><strong>The interpretation of directional derivative is important.</strong> The meaning of a directional derivative of a function \(f\) at \(\vec{a}\) in the direction of \(\vec{u}\) tells us the rate of change of a function \(f\) at specific direction \(\vec{u}\). The idea of gradient descent is to determine at which direction does function decrease the quickest. In other words, we want to minimize \(\frac{\partial f}{\partial \vec{u}}\left(a\right) = \nabla f\left(\vec{a}\right)\cdot \vec{u}\).</p>
+
+<p>But by Cauchy Schwartz inequality
+\(\frac{\partial f}{\partial \vec{u}}\left(a\right) = \nabla f\left(\vec{a}\right)\cdot \vec{u} \ge -|\nabla f\left(\vec{a}\right)| | \vec{u} |\), and the equality for lower bound is achieved when \(\vec{u}\) is in the same direction of \(\nabla f\left(\vec{a}\right)\). Hence \(f\) decreases the quickest at \(\vec{a}\) along \(\nabla f\left(a\right)\).</p>
+
+<p>This means, if we start off at a point \(\vec{a_0}\), we want to find a direction \(\vec{u_0}=\nabla f\left(\vec{a_0}\right)\) where if we travel along the direction \(\vec{u_0}\), we can arrive to \(\vec{a_1} = \vec{a_0} + \vec{u_0}\) where \(f\left(\vec{a_1}\right) &lt; f\left(\vec{a_0}\right)\) and iteratively \(f\left(\vec{a_n}\right) &lt; \dots &lt; f\left(\vec{a_0}\right)\)</p>
+
+<p>This is a very useful result in applied mathematics. It is often the case we need to find the minimum (or maximum) of a function, then in that case, we would first pick an arbitrary initial point and iteratively travel along the path of the gradient (negative of gradient) to minimize (or maxmize) objective function.</p>]]></content><author><name></name></author><category term="mathematics" /><category term="machine-learning" /><category term="optimization" /><category term="AI" /><summary type="html"><![CDATA[Math Behind Gradient Descent]]></summary></entry></feed>
