@@ -1,12 +1,8 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - tsangcharles
+
+repo_description_lines_max: 2
 
 github_repos:
-  - alshedivat/al-folio
-  - twbs/bootstrap
-  - jekyll/jekyll
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - jpswalsh/academicons
-  - mathjax/MathJax
+  - tsangcharles/liars-dice
+  - tsangcharles/R_Squared
