@@ -16,7 +16,7 @@ thought about performing any calculations; I just want to have a good time. Howe
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/liarsdice/dice.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/liarsdice/dice.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -62,13 +62,13 @@ We present the results for when there are n opponents, $$1<= n<= 6$$.
 ### 1 Opponent
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/liarsdice/onesprob1p.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/liarsdice/onesprob1p.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/liarsdice/notonesprob1p.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/liarsdice/notonesprob1p.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -76,39 +76,39 @@ We present the results for when there are n opponents, $$1<= n<= 6$$.
 ### 2 Opponents
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/liarsdice/onesprob2p.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/liarsdice/onesprob2p.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/liarsdice/notonesprob2p.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/liarsdice/notonesprob2p.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
 ### 3 Opponents
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/liarsdice/onesprob3p.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/liarsdice/onesprob3p.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/liarsdice/notonesprob3p.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/liarsdice/notonesprob3p.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
 ### 4 Opponents
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/liarsdice/onesprob4p.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/liarsdice/onesprob4p.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/liarsdice/notonesprob4p.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/liarsdice/notonesprob4p.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -116,26 +116,26 @@ We present the results for when there are n opponents, $$1<= n<= 6$$.
 ### 5 Opponents
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/liarsdice/onesprob5p.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/liarsdice/onesprob5p.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/liarsdice/notonesprob5p.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/liarsdice/notonesprob5p.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
 ### 6 Opponents
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/liarsdice/onesprob6p.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/liarsdice/onesprob6p.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/liarsdice/notonesprob6p.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/liarsdice/notonesprob6p.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 

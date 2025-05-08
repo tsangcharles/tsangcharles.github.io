@@ -10,7 +10,7 @@ category: data-science
 I have decided to examine different cloud service providers. 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/cloud/happy-cloud.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/cloud/happy-cloud.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 I will first present my thoughts about using the [Azure Texting Analytics API](https://azure.microsoft.com/en-us/services/cognitive-services/text-analytics/), in particular, the Azure cloud API for sentiment analysis. Then we will dive into the [AutoML Tables](https://cloud.google.com/automl-tables/) product on GCP.
@@ -44,7 +44,7 @@ Once a project is created in AutoML Tables, I selected the training data from St
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/cloud/dataselection.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/cloud/dataselection.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -54,7 +54,7 @@ Immediately in the Analyse tab, it creates quick summary statistics about your t
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/cloud/stats.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/cloud/stats.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -62,7 +62,7 @@ After setting training parameters (such as training budget so the service would 
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/cloud/training.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/cloud/training.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -74,7 +74,7 @@ I then uploaded the results on Kaggle to see how accurate the predictions are. I
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/cloud/results.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/cloud/results.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 

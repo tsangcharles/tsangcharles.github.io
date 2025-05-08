@@ -15,7 +15,7 @@ The term data scientist is very vague and not well defined. I have seen many dat
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/types_of_ds/surprised_pikachu.jpg" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/types_of_ds/surprised_pikachu.jpg" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -51,7 +51,7 @@ To further reinforce this idea, there are many auto ML algorithms out there to a
 ### 3. Expect to learn a lot
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/types_of_ds/pikachuwithshirt.png" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/types_of_ds/pikachuwithshirt.png" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 

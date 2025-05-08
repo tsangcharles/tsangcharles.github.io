@@ -11,7 +11,7 @@ In recent years, there has been a tremendous effort from different technology co
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/h2o/h2ologo.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/h2o/h2ologo.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -20,7 +20,7 @@ Installation is easy following [the download instructions](http://h2o-release.s3
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/h2o/h2oflow.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/h2o/h2oflow.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -31,7 +31,7 @@ AutoML is also very straight forward in this case.
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/h2o/h2oautoml.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/h2o/h2oautoml.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -42,7 +42,7 @@ I uploaded the prediction results onto Kaggle and received a decent score. This 
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/h2o/h2okaggleresults.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/h2o/h2okaggleresults.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 

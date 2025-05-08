@@ -12,7 +12,7 @@ Probably not. Reinforcement learning was popularized in the past decade due to t
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/reinforcement_learning/alphago.jpg" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/reinforcement_learning/alphago.jpg" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -24,7 +24,7 @@ There are few ways to think of a reinforcement learning model. One can start off
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/reinforcement_learning/reinforcement-learning-fig1-700.jpg" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager"  path="assets/img/reinforcement_learning/reinforcement-learning-fig1-700.jpg" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
