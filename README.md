@@ -425,7 +425,6 @@ By default, there will be a related posts section on the bottom of the blog post
 
 Currently, we run some checks to ensure that the code quality and generated site are good. The checks are done using GitHub Actions and the following tools:
 
-- [Prettier](https://prettier.io/) - check if the formatting of the code follows the style guide
 - [lychee](https://lychee.cli.rs/) - check for broken links
 - [Axe](https://github.com/dequelabs/axe-core) (need to run manually) - do some accessibility testing
 
@@ -446,7 +445,6 @@ If you would like to improve documentation or fix a minor inconsistency or bug, 
 Our most active contributors are welcome to join the maintainers team. If you are interested, please reach out!
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
 <table>
   <tbody>
@@ -460,7 +458,6 @@ Our most active contributors are welcome to join the maintainers team. If you ar
 </table>
 
 <!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
