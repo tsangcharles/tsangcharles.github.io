@@ -4,6 +4,7 @@ github_users:
 repo_description_lines_max: 2
 
 github_repos:
+  - tsangcharles/youtube-summarizer
   - tsangcharles/mlflow-demo
   - tsangcharles/automl-docker-example
   - tsangcharles/supervised-learning-docker-demo
