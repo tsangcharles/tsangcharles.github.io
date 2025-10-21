@@ -102,9 +102,9 @@ ninja.data = [{
           description: "A Quick Demo for Analyzing Liar&#39;s Game",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2019-04-27-Liars-Dice/";
-            },},{id: "projects-r-squared",
-          title: 'R Squared',
-          description: "Why you should not use R Squared for machine learning",
+            },},{id: "projects-r",
+          title: 'R²',
+          description: "Why you should not use R² for machine learning",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2020-07-12-R-Squared/";
             },},{
