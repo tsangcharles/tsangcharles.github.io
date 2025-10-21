@@ -102,16 +102,6 @@ ninja.data = [{
           description: "A Quick Demo for Analyzing Liar&#39;s Game",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2019-04-27-Liars-Dice/";
-            },},{id: "projects-playing-with-cloud",
-          title: 'Playing with Cloud',
-          description: "Examining Cloud Services (Slightly Outdated)",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/2019-05-04-Playing-with-Cloud/";
-            },},{id: "projects-playing-with-h2o",
-          title: 'Playing with H2O',
-          description: "Testing out H2O on a Kaggle Get Started Tutorial (Slightly Outdated)",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/2019-05-17-Playing-with-H2O/";
             },},{id: "projects-r-squared",
           title: 'R Squared',
           description: "Why you should not use R Squared for machine learning",
