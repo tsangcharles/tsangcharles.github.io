@@ -99,7 +99,7 @@ ninja.data = [{
           description: "",
           section: "News",},{id: "projects-liar-39-s-dice",
           title: 'Liar&amp;#39;s Dice',
-          description: "A Quick Demo for Analyzing Liar&#39;s Game",
+          description: "A Quick Demo for Analyzing Liar&#39;s Dice Game",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2019-04-27-Liars-Dice/";
             },},{id: "projects-r",
