@@ -7,10 +7,10 @@ importance: 4
 category: fun
 ---
 
-This is a brief analysis of the popular drinking game Liar's Dice. Whenever I 
+This is a brief analysis of the popular drinking game Liar's Dice. Whenever I
 attend karaoke events and I am invited to play this drinking game, people often say "Charles, stop calculating", just because I study mathematics. The truth is I never
-thought about performing any calculations; I just want to have a good time. However, 
- typical stereotype has encouraged me to start exploring and analyzing this game.
+thought about performing any calculations; I just want to have a good time. However,
+typical stereotype has encouraged me to start exploring and analyzing this game.
 
 ## Game Introduction
 
@@ -20,7 +20,7 @@ thought about performing any calculations; I just want to have a good time. Howe
     </div>
 </div>
 
-For those who are experts in this game, feel free to skip this section. 
+For those who are experts in this game, feel free to skip this section.
 
 I will first explain some game rules and assumptions for this analysis. The game consists of
 $$n > 1$$ players and each player has a cup with 5 dice in their cup. Initially,
@@ -37,11 +37,12 @@ until a player refuses to believe the previous claim, at which everyone reveals 
 the truth. If the claim is correct, the last person has to drink, otherwise the previous player drinks.
 
 In this gameplay, there are several special rules:
+
 - 1 is a wild card that can be counted as any value. For example, if someone says three 3's, we also count the 1 as a 3.
 - No one will have 5 distinct dice. If one rolls 5 distinct dice, they must reroll. They have 2 chances to reroll
-before it is considered as a lost and they have to drink.
-- If one has 5 of the same dice (it can include 1's, say someone has the outcome 5,5,5,1,1), it is counted 
-as an outcome of 6. (For the example, it would mean they have five 5's)
+  before it is considered as a lost and they have to drink.
+- If one has 5 of the same dice (it can include 1's, say someone has the outcome 5,5,5,1,1), it is counted
+  as an outcome of 6. (For the example, it would mean they have five 5's)
 
 There are additional game rules that will affect the operations of this game, but to analyze
 the probabilities, this basic set would suffice. For a more comprehensive set, please check out
@@ -58,8 +59,8 @@ binomial (or multinomial) problem; rules number 2 and 3 above make the probabili
 
 We present the results for when there are n opponents, $$1<= n<= 6$$.
 
-
 ### 1 Opponent
+
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/liarsdice/onesprob1p.png" title="example image" class="img-fluid rounded z-depth-1" %}
@@ -72,8 +73,8 @@ We present the results for when there are n opponents, $$1<= n<= 6$$.
     </div>
 </div>
 
-
 ### 2 Opponents
+
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/liarsdice/onesprob2p.png" title="example image" class="img-fluid rounded z-depth-1" %}
@@ -87,6 +88,7 @@ We present the results for when there are n opponents, $$1<= n<= 6$$.
 </div>
 
 ### 3 Opponents
+
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/liarsdice/onesprob3p.png" title="example image" class="img-fluid rounded z-depth-1" %}
@@ -100,6 +102,7 @@ We present the results for when there are n opponents, $$1<= n<= 6$$.
 </div>
 
 ### 4 Opponents
+
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/liarsdice/onesprob4p.png" title="example image" class="img-fluid rounded z-depth-1" %}
@@ -112,8 +115,8 @@ We present the results for when there are n opponents, $$1<= n<= 6$$.
     </div>
 </div>
 
-
 ### 5 Opponents
+
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/liarsdice/onesprob5p.png" title="example image" class="img-fluid rounded z-depth-1" %}
@@ -127,6 +130,7 @@ We present the results for when there are n opponents, $$1<= n<= 6$$.
 </div>
 
 ### 6 Opponents
+
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/liarsdice/onesprob6p.png" title="example image" class="img-fluid rounded z-depth-1" %}
@@ -140,6 +144,7 @@ We present the results for when there are n opponents, $$1<= n<= 6$$.
 </div>
 
 ## Potential Future work
-Issues for the current approach is that I am using a Monte Carlo simulation and I did not set a convergence threshold to wait for convergence. I have naively set the number of simulations to be 10,000. This causes some instability to the probabilities as can be seen within the notebook. 
+
+Issues for the current approach is that I am using a Monte Carlo simulation and I did not set a convergence threshold to wait for convergence. I have naively set the number of simulations to be 10,000. This causes some instability to the probabilities as can be seen within the notebook.
 The proper way to perform a Monte Carlo simulation is to set a convergence tolerance. I did not do this due to the nature of the
-quick demo. Nonetheless, the results present a good proxy of the actual probabilities. 
+quick demo. Nonetheless, the results present a good proxy of the actual probabilities.

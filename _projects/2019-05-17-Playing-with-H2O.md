@@ -16,6 +16,7 @@ In recent years, there has been a tremendous effort from different technology co
 </div>
 
 ## Installation and Getting Started
+
 Installation is easy following [the download instructions](http://h2o-release.s3.amazonaws.com/h2o/rel-yates/3/index.html). H2O flow can be opened within localhost, providing a notebook-style (kind of like Jupyter Notebook) for performing data science.
 
 <div class="row justify-content-sm-center">
@@ -24,10 +25,11 @@ Installation is easy following [the download instructions](http://h2o-release.s3
     </div>
 </div>
 
-The UI is simple to follow and does not require any prior programming experience to use. Most of the data preparation procedures are point and click, and are very intuitive. 
+The UI is simple to follow and does not require any prior programming experience to use. Most of the data preparation procedures are point and click, and are very intuitive.
 
 ## Model Training
-AutoML is also very straight forward in this case. 
+
+AutoML is also very straight forward in this case.
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
@@ -38,7 +40,8 @@ AutoML is also very straight forward in this case.
 I was able to input the raw data from [this compeition](https://www.kaggle.com/c/house-prices-advanced-regression-techniques) without any preprocessing such as performing one-hot-encoding etc. The data contains both numerical values and string values. AutoML takes care of all this and was able to perform predictions. I have chosen not to exclude any models from being excluded from training and set the training time to be 1 hour.
 
 ## Results
-I uploaded the prediction results onto Kaggle and received a decent score. This prediction outperforms my previous attempt using AutoML Tables on GCP and places me in the upper 46%. 
+
+I uploaded the prediction results onto Kaggle and received a decent score. This prediction outperforms my previous attempt using AutoML Tables on GCP and places me in the upper 46%.
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
@@ -47,4 +50,5 @@ I uploaded the prediction results onto Kaggle and received a decent score. This 
 </div>
 
 ## Summary
-Overall H2O is very simple to pick up and can be used by anyone without programming experience but a strong interest in data science. The entire processing from data ingestion to prediction only took 1.5 hours (including installation), with 1 hour spent on training. The prediction also outperforms AutoML Tables services provided on GCP. I highly recommend trying out H2O. 
+
+Overall H2O is very simple to pick up and can be used by anyone without programming experience but a strong interest in data science. The entire processing from data ingestion to prediction only took 1.5 hours (including installation), with 1 hour spent on training. The prediction also outperforms AutoML Tables services provided on GCP. I highly recommend trying out H2O.

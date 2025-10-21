@@ -8,7 +8,7 @@ categories: career-advice
 giscus_comments: false
 ---
 
-I have been a (Data Science) consultant for the past 3 years, and I decided to transition out of consulting several months ago to take on a new challenge as a Data Scientist in the gaming industry; I can not possibly be happier with the change. Retrospectively I have met many amazing people over the past few years and they have greatly contributed to my personal development. I would like to take this opportunity to share some of my thoughts in terms of the pros and cons of consulting for any aspiring Data Scientist. 
+I have been a (Data Science) consultant for the past 3 years, and I decided to transition out of consulting several months ago to take on a new challenge as a Data Scientist in the gaming industry; I can not possibly be happier with the change. Retrospectively I have met many amazing people over the past few years and they have greatly contributed to my personal development. I would like to take this opportunity to share some of my thoughts in terms of the pros and cons of consulting for any aspiring Data Scientist.
 
 **Overall, I would highly recommend anyone to work as a consultant as part of their career journey.**
 
@@ -17,7 +17,6 @@ I have been a (Data Science) consultant for the past 3 years, and I decided to t
         {% include figure.liquid loading="eager"  path="assets/img/consulting/pikachu.jpg" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-
 
 <span style="color:#27ae60">**PRO**</span> - Exposure
 
