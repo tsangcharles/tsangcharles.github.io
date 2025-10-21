@@ -51,7 +51,7 @@ the probabilities, this basic set would suffice. For a more comprehensive set, p
 ## Approach
 
 In a $$n$$ player game, you can see your dice rolls, so you would be interested in the probability
-of the counts of other $$n-1$$ players' rolls. In particular, we have created a demo [notebook](https://github.com/tsangcharles/liars-dice/blob/master/calculations.ipynb) to calculate the probabilities. The approach uses Monte Carlo simulations to estimate the probabilities
+of the counts of other $$n-1$$ players' rolls. In particular, we have created a [script](https://github.com/tsangcharles/liars-dice/blob/master/liars_dice.py) to calculate the probabilities. The approach uses Monte Carlo simulations to estimate the probabilities
 of interest. The reasons why binomial (or multinomial) distribution is not used for calculations is that the number of outcomes is not a
 binomial (or multinomial) problem; rules number 2 and 3 above make the probability non-binomial (or non-multinomial).
 
