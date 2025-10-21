@@ -3,7 +3,7 @@ layout: post
 title: Should You Use Reinforcement Learning?
 date: 2021-02-14
 description: "Sharing my experience on reinforcement learning"
-tags: machine-learning AI
+tags: machine-learning
 categories: industry-experience
 giscus_comments: false
 ---

@@ -3,7 +3,7 @@ layout: post
 title: How does Gradient Descent work?
 date: 2019-09-23
 description: Math Behind Gradient Descent
-tags: machine-learning optimization AI
+tags: optimization
 categories: mathematics
 giscus_comments: false
 ---
