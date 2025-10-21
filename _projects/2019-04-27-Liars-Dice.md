@@ -40,7 +40,7 @@ In this gameplay, there are several special rules:
 
 - 1 is a wild card that can be counted as any value. For example, if someone says three 3's, we also count the 1 as a 3.
 - No one will have 5 distinct dice. If one rolls 5 distinct dice, they must reroll. They have 2 chances to reroll
-  before it is considered as a lost and they have to drink.
+    before it is considered a loss and they have to drink.
 - If one has 5 of the same dice (it can include 1's, say someone has the outcome 5,5,5,1,1), it is counted
   as an outcome of 6. (For the example, it would mean they have five 5's)
 

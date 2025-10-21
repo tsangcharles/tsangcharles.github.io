@@ -38,7 +38,7 @@ These are the "traditional" kind of data scientists and are often what people th
 
 Type B data scientists are often called Machine Learning Engineers. Machine learning engineers are individuals who deploy machine learning applications into production as mentioned above. They are often a hybrid of data scientists, data engineers, and software engineers as well.
 
-A traditional statistics program would train type A data scientists (without the database skills), As a result, I encourage job seekers to explore whether they are more interested in performing data analysis (type A) or build machine learning softwares (type B), as they can dictate the skills job seekers may want to acquire.
+A traditional statistics program would train type A data scientists (without the database skills), As a result, I encourage job seekers to explore whether they are more interested in performing data analysis (type A) or build machine learning software (type B), as they can dictate the skills job seekers may want to acquire.
 
 ### 1. Be Big-data-enabled
 

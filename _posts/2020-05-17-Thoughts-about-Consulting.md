@@ -8,7 +8,7 @@ categories: career-advice
 giscus_comments: false
 ---
 
-I have been a (Data Science) consultant for the past 3 years, and I decided to transition out of consulting several months ago to take on a new challenge as a Data Scientist in the gaming industry; I can not possibly be happier with the change. Retrospectively I have met many amazing people over the past few years and they have greatly contributed to my personal development. I would like to take this opportunity to share some of my thoughts in terms of the pros and cons of consulting for any aspiring Data Scientist.
+I have been a (Data Science) consultant for the past 3 years, and I decided to transition out of consulting several months ago to take on a new challenge as a Data Scientist in the gaming industry; I cannot possibly be happier with the change. Retrospectively I have met many amazing people over the past few years and they have greatly contributed to my personal development. I would like to take this opportunity to share some of my thoughts in terms of the pros and cons of consulting for any aspiring Data Scientist.
 
 **Overall, I would highly recommend anyone to work as a consultant as part of their career journey.**
 
@@ -36,4 +36,4 @@ The bottom line is, working on a deliverable is pretty much like a sprint (not i
 
 I have met numerous extremely unpleasant people during my 3 years as a consultant. Due to the extreme hierarchy of the firms I have had to opportunity to work in, the **"pls fix"** culture is very real. Many of the middle management simply cascade work even when they have nothing to work on, this is simply due to their pride in having the power to order people around. They do not provide any value and contribute deeply to the toxic culture and high turnover rates.
 
-As a conclusion, the pro for exposure can easily outweigh the con of people and culture in the short-run, and I would recommend jump-starting a data science career in consulting.
+In conclusion, the pro for exposure can easily outweigh the con of people and culture in the short-run, and I would recommend jump-starting a data science career in consulting.
