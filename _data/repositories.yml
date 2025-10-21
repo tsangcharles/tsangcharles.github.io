@@ -4,5 +4,8 @@ github_users:
 repo_description_lines_max: 2
 
 github_repos:
+  - tsangcharles/mlflow-demo
+  - tsangcharles/automl-docker-example
+  - tsangcharles/supervised-learning-docker-demo
   - tsangcharles/liars-dice
   - tsangcharles/R_Squared

@@ -9,6 +9,7 @@ nav_order: 5
 
 #### University of Toronto
 MMF1922 Data Science
+- 2025 Fall
 - 2024 Fall
 - 2023 Fall
 - 2022 Fall
