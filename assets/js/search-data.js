@@ -106,7 +106,12 @@ ninja.data = [{
           title: 'R²',
           description: "Why you should not use R² for machine learning",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/2020-07-12-R-Squared/";
+              window.location.href = "/projects/2020-07-12-R-Squared%20copy/";
+            },},{id: "projects-youtube-summarizer",
+          title: 'YouTube Summarizer',
+          description: "Building a Chrome Extension to Summarize YouTube Videos",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/2025-10-21-Youtbe-Summarizer/";
             },},{
         id: 'social-email',
         title: 'email',
