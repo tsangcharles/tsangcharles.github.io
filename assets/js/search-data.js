@@ -37,15 +37,15 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/teaching/";
           },
-        },{id: "post-different-types-of-data-scientist",
+        },{id: "post-past-and-present-of-data-science",
         
-          title: "Different types of Data Scientist",
+          title: "Past and Present of Data Science",
         
-        description: "Sharing my thoughts on different thoughts of types of Data Scientists",
+        description: "History of Data Science Career",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2023/Types-of-Data-Scientists/";
+            window.location.href = "/blog/2025/Past-and-Present-of-Data-Science/";
           
         },
       },{id: "post-should-you-use-reinforcement-learning",
@@ -79,6 +79,17 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2019/Gradient-Descent/";
+          
+        },
+      },{id: "post-different-types-of-data-scientist",
+        
+          title: "Different types of Data Scientist",
+        
+        description: "Sharing my thoughts on different thoughts of types of Data Scientists",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2019/Types-of-Data-Scientists/";
           
         },
       },{id: "books-the-godfather",
