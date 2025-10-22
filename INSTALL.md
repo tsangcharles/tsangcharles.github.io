@@ -26,21 +26,21 @@
 
 ## Recommended Approach
 
-The recommended approach for using **al-folio** is to first create your own site using the template with as few changes as possible, and only when it is up and running customize it however you like. This way it is easier to pinpoint what causes a potential issue in case of a bug. The minimum steps required to create your own site are ([video tutorial here](assets/video/tutorial_al_folio.mp4)):
+The recommended approach for using the theme is to first create your own site using the template with as few changes as possible, and only when it is up and running customize it however you like. This way it is easier to pinpoint what causes a potential issue in case of a bug. The minimum steps required to create your own site are ([video tutorial here](assets/video/tutorial_al_folio.mp4)):
 
-1. Create a new repository using this template. For this, click on [Use this template -> Create a new repository](https://github.com/new?template_name=al-folio&template_owner=alshedivat) above the file list. If you plan to upload your site to `<your-github-username>.github.io`, note that the name of your repository :warning: **MUST BE** :warning: `<your-github-username>.github.io` or `<your-github-orgname>.github.io`, as stated in the [GitHub pages docs](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites).
+1. Create a new repository using this template. For this, click on [Use this template -> Create a new repository](https://github.com/alshedivat/al-folio) above the file list. If you plan to upload your site to `<your-github-username>.github.io`, note that the name of your repository :warning: **MUST BE** :warning: `<your-github-username>.github.io` or `<your-github-orgname>.github.io`, as stated in the [GitHub pages docs](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites).
 2. In this new repository, go to [Settings -> Actions -> General -> Workflow permissions](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-default-github_token-permissions) and give `Read and write permissions` to GitHub Actions.
 3. Open file `_config.yml`, set `url` to `https://<your-github-username>.github.io` and leave `baseurl` **empty** (do NOT delete it), as `baseurl:`.
 4. Wait until the GitHub action with subtitle `Deploy site` finishes (check your repository **Actions** tab), which takes ~4 min. Now, in addition to the `main` branch, your repository has a newly built `gh-pages` branch.
 5. Finally, in the repository page go to `Settings -> Pages -> Build and deployment`, make sure that `Source` is set to `Deploy from a branch` and set the branch to `gh-pages` (NOT to main).
-6. Wait until the GitHub action `pages-build-deployment` finishes (check your repository **Actions** tab), which takes ~45s, then simply navigate to `https://<your-github-username>.github.io` in your browser. At this point you should see a copy of the theme's [demo website](https://alshedivat.github.io/al-folio/).
+6. Wait until the GitHub action `pages-build-deployment` finishes (check your repository **Actions** tab), which takes ~45s, then simply navigate to `https://<your-github-username>.github.io` in your browser. At this point you should see a copy of the theme's [demo website](the demo website).
    After everything is set up, you can download the repository to your machine and start customizing it. To do so, run the following commands:
 
 ```bash
 $ git clone git@github.com:<your-username>/<your-repo-name>.git
 ```
 
-Starting version [v0.3.5](https://github.com/alshedivat/al-folio/releases/tag/v0.3.5), **al-folio** will automatically re-deploy your webpage each time you push new changes to your repository! :sparkles:
+Starting version [v0.3.5](https://github.com/alshedivat/al-folio/releases/tag/v0.3.5), the theme will automatically re-deploy your webpage each time you push new changes to your repository! :sparkles:
 
 ## Local setup on Windows
 
@@ -50,7 +50,7 @@ If you are using Windows, it is **highly recommended** to use [Windows Subsystem
 
 Using Docker to install Jekyll and Ruby dependencies is the easiest way.
 
-You need to take the following steps to get `al-folio` up and running on your local machine:
+You need to take the following steps to get `this theme` up and running on your local machine:
 
 - First, install [docker](https://docs.docker.com/get-docker/) and [docker-compose](https://docs.docker.com/compose/install/).
 - Finally, run the following command that will pull the latest pre-built image from DockerHub and will run your website.
@@ -68,7 +68,7 @@ Now, feel free to customize the theme however you like (don't forget to change t
 
 ### Build your own docker image
 
-> Note: this approach is only necessary if you would like to build an older or very custom version of al-folio.
+> Note: this approach is only necessary if you would like to build an older or very custom version of this theme.
 
 Build and run a new docker image using:
 
@@ -112,12 +112,12 @@ Most likely, this will solve the problem but it shouldn't really happen. So, ple
 
 ## Local Setup with Development Containers
 
-`al-folio` supports [Development Containers](https://containers.dev/supporting).
+`this theme` supports [Development Containers](https://containers.dev/supporting).
 For example, when you open the repository with Visual Studio Code (VSCode), it prompts you to install the necessary extension and automatically install everything necessary.
 
 ## Local Setup (Legacy, no longer supported)
 
-For a hands-on walkthrough of running al-folio locally without using Docker, check out [this cool blog post](https://george-gca.github.io/blog/2022/running-local-al-folio/) by one of the community members!
+For a hands-on walkthrough of running this theme locally without using Docker, check out [this cool blog post](https://george-gca.github.io/blog/2022/running-local-this theme/) by one of the community members!
 
 Assuming you have [Ruby](https://www.ruby-lang.org/en/downloads/) and [Bundler](https://bundler.io/) installed on your system (_hint: for ease of managing ruby gems, consider using [rbenv](https://github.com/rbenv/rbenv)_), and also [Python](https://www.python.org/) and [pip](https://pypi.org/project/pip/) (_hint: for ease of managing python packages, consider using a virtual environment, like [venv](https://docs.python.org/pt-br/3/library/venv.html) or [conda](https://docs.conda.io/en/latest/)_).
 
@@ -128,12 +128,12 @@ $ pip install jupyter
 $ bundle exec jekyll serve
 ```
 
-To see the template running, open your browser and go to `http://localhost:4000`. You should see a copy of the theme's [demo website](https://alshedivat.github.io/al-folio/). Now, feel free to customize the theme however you like. After you are done, remember to **commit** your final changes.
+To see the template running, open your browser and go to `http://localhost:4000`. You should see a copy of the theme's [demo website](the demo website). Now, feel free to customize the theme however you like. After you are done, remember to **commit** your final changes.
 
 ## Deployment
 
 Deploying your website to [GitHub Pages](https://pages.github.com/) is the most popular option.
-Starting version [v0.3.5](https://github.com/alshedivat/al-folio/releases/tag/v0.3.5), **al-folio** will automatically re-deploy your webpage each time you push new changes to your repository **main branch**! :sparkles:
+Starting version [v0.3.5](https://github.com/alshedivat/al-folio/releases/tag/v0.3.5), the theme will automatically re-deploy your webpage each time you push new changes to your repository **main branch**! :sparkles:
 
 ### For personal and organization webpages
 
@@ -166,7 +166,7 @@ If you need to manually re-deploy your website to GitHub pages, go to Actions, c
 
 ### Deploy on [Netlify](https://www.netlify.com/)
 
-1. [Use this template -> Create a new repository](https://github.com/new?template_name=al-folio&template_owner=alshedivat).
+1. [Use this template -> Create a new repository](https://github.com/alshedivat/al-folio).
 2. Netlify: **Add new site** -> **Import an existing project** -> **GitHub** and give Netlify access to the repository you just created.
 3. Netlify: In the deploy settings
    - Set **Branch to deploy** to `main`
@@ -212,7 +212,7 @@ For a user site this could well be something like `$HOME/<user>.github.io`.
 
 Firstly, from the deployment repo dir, checkout the git branch hosting your publishing source.
 
-Then from the website sources dir (commonly your al-folio fork's clone):
+Then from the website sources dir (commonly your this theme fork's clone):
 
 ```bash
 $ bundle exec jekyll build --destination $HOME/repo/publishing-source
@@ -231,13 +231,13 @@ The quote below is taken directly from the [jekyll configuration docs](https://j
 > Do not use an important location for `<destination>`; instead, use it as a staging area and copy files from there to your web server.
 
 If `$HOME/repo/publishing-source` contains files that you want jekyll to leave untouched, specify them under `keep_files` in `_config.yml`.
-In its default configuration, al-folio will copy the top-level `README.md` to the publishing source. If you want to change this behavior, add `README.md` under `exclude` in `_config.yml`.
+In its default configuration, this theme will copy the top-level `README.md` to the publishing source. If you want to change this behavior, add `README.md` under `exclude` in `_config.yml`.
 
 **Note:** Do _not_ run `jekyll clean` on your publishing source repo as this will result in the entire directory getting deleted, irrespective of the content of `keep_files` in `_config.yml`.
 
 ## Upgrading from a previous version
 
-If you installed **al-folio** as described above, you can manually update your code by following the steps below:
+If you installed the theme as described above, you can manually update your code by following the steps below:
 
 ```bash
 # Assuming the current directory is <your-repo-name>
