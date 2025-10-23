@@ -4,7 +4,7 @@ title: Central Limit Theorem
 description: Interactive simulation demonstrating the Central Limit Theorem
 importance: 1
 img: /assets/img/clt/preview.png
-category: data-science
+category: statistics
 ---
 
 The Central Limit Theorem is one of the most fundamental concepts in statistics. 

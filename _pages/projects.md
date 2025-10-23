@@ -5,7 +5,7 @@ permalink: /projects/
 description: A growing collection of my personal projects.
 nav: true
 nav_order: 3
-display_categories: [data-science, fun]
+display_categories: [machine-learning, fun, statistics]
 horizontal: false
 ---
 
