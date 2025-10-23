@@ -273,12 +273,23 @@ canvas {
     <div class="visualization clt-visuals">
         <section class="chart-container clt-parent" id="parent-container">
             <div class="chart-title">Parent Population Distribution</div>
-            <canvas id="populationChart" width="800" height="300"></canvas>
+            <canvas id="populationChart" width="800" height="200"></canvas>
+        </section>
+
+        <section class="chart-container clt-sample" id="sample-container">
+            <div class="chart-title">Current Sample (N = <span id="currentSampleSize">5</span>)</div>
+            <canvas id="sampleChart" width="800" height="150"></canvas>
+            <div class="stats-display" style="padding: 10px; margin-top: 10px;">
+                <div class="stat-item">
+                    <span class="stat-label">Sample Mean:</span>
+                    <span class="stat-value" id="currentSampleMean">—</span>
+                </div>
+            </div>
         </section>
 
         <section class="chart-container clt-sampling" id="sampling-container">
             <div class="chart-title">Distribution of Sample Means</div>
-            <canvas id="samplingChart" width="800" height="300"></canvas>
+            <canvas id="samplingChart" width="800" height="250"></canvas>
             <div class="stats-display">
                 <div class="stat-item">
                     <span class="stat-label">Mean of Means:</span>
@@ -310,10 +321,13 @@ class CLTSimulation {
         this.populationSD = 1;
         this.animationId = null;
         this.seed = 12345; // Fixed seed for reproducibility
+        this.currentSample = [];
+        this.animatingDrop = false;
         
         this.initializeControls();
         this.setupResize();
         this.drawPopulation();
+        this.drawCurrentSample();
     }
 
     // Seeded random number generator (Mulberry32)
@@ -333,6 +347,7 @@ class CLTSimulation {
         // Slider updates
         document.getElementById('sampleSize').addEventListener('input', (e) => {
             document.getElementById('sampleSizeValue').textContent = e.target.value;
+            document.getElementById('currentSampleSize').textContent = e.target.value;
             this.updateExpectedSD();
         });
 
@@ -342,8 +357,8 @@ class CLTSimulation {
         });
 
         // Button handlers
-        document.getElementById('sample1').addEventListener('click', () => this.drawSamples(1));
-        document.getElementById('sample5').addEventListener('click', () => this.drawSamples(5));
+        document.getElementById('sample1').addEventListener('click', () => this.drawSamplesWithAnimation(1));
+        document.getElementById('sample5').addEventListener('click', () => this.drawSamplesWithAnimation(5));
         document.getElementById('sample1000').addEventListener('click', () => this.drawSamples(1000));
         document.getElementById('reset').addEventListener('click', () => this.reset());
         document.getElementById('animate').addEventListener('click', () => this.toggleAnimation());
@@ -354,6 +369,7 @@ class CLTSimulation {
             this.resizeCanvases();
             // Re-draw with current state
             this.drawPopulation();
+            this.drawCurrentSample();
             this.drawSamplingDistribution();
             this.updateStats();
         };
@@ -365,12 +381,20 @@ class CLTSimulation {
 
     resizeCanvases() {
         const popCanvas = document.getElementById('populationChart');
+        const sampleCanvas = document.getElementById('sampleChart');
         const sampCanvas = document.getElementById('samplingChart');
-        [popCanvas, sampCanvas].forEach((canvas) => {
+        [popCanvas, sampleCanvas, sampCanvas].forEach((canvas, idx) => {
             if (!canvas) return;
             const container = canvas.parentElement;
             const width = Math.max(260, Math.floor(container.clientWidth));
-            const height = window.innerWidth >= 992 ? 180 : 220; // much shorter on desktop
+            let height;
+            if (idx === 0) { // population chart
+                height = window.innerWidth >= 992 ? 150 : 180;
+            } else if (idx === 1) { // sample chart
+                height = window.innerWidth >= 992 ? 120 : 140;
+            } else { // sampling distribution chart
+                height = window.innerWidth >= 992 ? 180 : 220;
+            }
             canvas.style.width = '100%';
             canvas.style.height = height + 'px';
             canvas.width = width;
@@ -401,6 +425,7 @@ class CLTSimulation {
 
     reset() {
         this.sampleMeans = [];
+        this.currentSample = [];
         this.resetSeed(); // Reset seed for reproducibility
         if (this.animationId) {
             clearInterval(this.animationId);
@@ -408,7 +433,9 @@ class CLTSimulation {
             document.getElementById('animate').textContent = 'Animate';
         }
         document.getElementById('numSamplesValue').textContent = '0';
+        document.getElementById('currentSampleMean').textContent = '—';
         this.drawPopulation();
+        this.drawCurrentSample();
         this.drawSamplingDistribution();
         this.updateStats();
     }
@@ -505,6 +532,170 @@ class CLTSimulation {
         this.updateExpectedSD();
     }
 
+    drawCurrentSample() {
+        const canvas = document.getElementById('sampleChart');
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        if (this.currentSample.length === 0) {
+            // Draw empty state
+            ctx.fillStyle = '#999';
+            ctx.font = '14px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('Draw a sample to see the values appear here', canvas.width / 2, canvas.height / 2);
+            return;
+        }
+
+        const min = 0;
+        const max = 10;
+        const radius = 6;
+        const pad = { top: 20, right: 20, bottom: 26, left: 40 };
+        const plotWidth = canvas.width - pad.left - pad.right;
+
+        // Draw x-axis
+        ctx.strokeStyle = '#bbb';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(pad.left, canvas.height - pad.bottom + 0.5);
+        ctx.lineTo(canvas.width - pad.right, canvas.height - pad.bottom + 0.5);
+        ctx.stroke();
+
+        // Draw axis labels
+        ctx.fillStyle = '#000';
+        ctx.font = '12px Arial';
+        ctx.textAlign = 'center';
+        for (let i = 0; i <= 10; i += 2) {
+            const x = pad.left + (i / 10) * plotWidth;
+            ctx.fillText(i.toString(), x, canvas.height - 6);
+        }
+
+        // Draw sample points
+        this.currentSample.forEach((value, index) => {
+            const x = pad.left + (value / (max - min)) * plotWidth;
+            const baseY = canvas.height - pad.bottom;
+            
+            // Stack points vertically if they're close
+            let y = baseY - radius - 5;
+            
+            // Check for overlapping points and stack them
+            for (let i = 0; i < index; i++) {
+                const otherX = pad.left + (this.currentSample[i] / (max - min)) * plotWidth;
+                if (Math.abs(x - otherX) < radius * 2) {
+                    y -= radius * 2;
+                }
+            }
+
+            // Draw point
+            ctx.fillStyle = '#74b9ff';
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.strokeStyle = '#0984e3';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+        });
+
+        // Draw mean line
+        if (this.currentSample.length > 0) {
+            const mean = this.currentSample.reduce((a, b) => a + b, 0) / this.currentSample.length;
+            const meanX = pad.left + (mean / (max - min)) * plotWidth;
+            
+            ctx.strokeStyle = '#FF5722';
+            ctx.lineWidth = 3;
+            ctx.setLineDash([5, 5]);
+            ctx.beginPath();
+            ctx.moveTo(meanX, pad.top);
+            ctx.lineTo(meanX, canvas.height - pad.bottom - 5);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Label the mean
+            ctx.fillStyle = '#FF5722';
+            ctx.font = 'bold 12px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText(`x̄ = ${mean.toFixed(2)}`, meanX, pad.top - 5);
+        }
+    }
+
+    async drawSamplesWithAnimation(count) {
+        if (this.animatingDrop) return;
+        
+        for (let i = 0; i < count; i++) {
+            await this.drawSingleSampleWithAnimation();
+        }
+    }
+
+    async drawSingleSampleWithAnimation() {
+        this.animatingDrop = true;
+        
+        const dist = document.getElementById('distribution').value;
+        const sampleSize = parseInt(document.getElementById('sampleSize').value);
+
+        // Generate new sample
+        this.currentSample = [];
+        for (let j = 0; j < sampleSize; j++) {
+            this.currentSample.push(this.generateValue(dist));
+        }
+        
+        // Draw the current sample
+        this.drawCurrentSample();
+        
+        // Calculate mean
+        const mean = this.currentSample.reduce((a, b) => a + b, 0) / this.currentSample.length;
+        document.getElementById('currentSampleMean').textContent = mean.toFixed(3);
+        
+        // Wait a bit to show the sample
+        await new Promise(resolve => setTimeout(resolve, 300));
+        
+        // Animate the mean "dropping" into the sampling distribution
+        await this.animateMeanDrop(mean);
+        
+        // Add to sample means
+        this.sampleMeans.push(mean);
+        document.getElementById('numSamplesValue').textContent = this.sampleMeans.length;
+        
+        // Update the sampling distribution
+        this.drawSamplingDistribution();
+        this.updateStats();
+        
+        this.animatingDrop = false;
+    }
+
+    async animateMeanDrop(mean) {
+        const samplingCanvas = document.getElementById('samplingChart');
+        const ctx = samplingCanvas.getContext('2d');
+        
+        const min = 0;
+        const max = 10;
+        const pad = { top: 20, right: 20, bottom: 26, left: 40 };
+        const plotWidth = samplingCanvas.width - pad.left - pad.right;
+        const meanX = pad.left + (mean / (max - min)) * plotWidth;
+        
+        // Draw a falling indicator
+        const radius = 8;
+        const startY = -20;
+        const endY = samplingCanvas.height - pad.bottom - 10;
+        const steps = 15;
+        
+        for (let step = 0; step <= steps; step++) {
+            const progress = step / steps;
+            const y = startY + (endY - startY) * progress;
+            
+            // Redraw the sampling distribution
+            this.drawSamplingDistribution();
+            
+            // Draw the falling point
+            ctx.fillStyle = '#FF5722';
+            ctx.globalAlpha = 0.8;
+            ctx.beginPath();
+            ctx.arc(meanX, y, radius, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.globalAlpha = 1.0;
+            
+            await new Promise(resolve => setTimeout(resolve, 20));
+        }
+    }
+
     drawSamples(count) {
         const dist = document.getElementById('distribution').value;
         const sampleSize = parseInt(document.getElementById('sampleSize').value);
@@ -517,6 +708,15 @@ class CLTSimulation {
             const mean = sample.reduce((a, b) => a + b, 0) / sample.length;
             this.sampleMeans.push(mean);
         }
+
+        // Show the last sample
+        this.currentSample = [];
+        for (let j = 0; j < sampleSize; j++) {
+            this.currentSample.push(this.generateValue(dist));
+        }
+        const lastMean = this.currentSample.reduce((a, b) => a + b, 0) / this.currentSample.length;
+        document.getElementById('currentSampleMean').textContent = lastMean.toFixed(3);
+        this.drawCurrentSample();
 
         document.getElementById('numSamplesValue').textContent = this.sampleMeans.length;
 
