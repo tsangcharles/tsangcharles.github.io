@@ -1207,11 +1207,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ## How to Use
 
-1. **Select a Distribution**: Choose from Uniform, Normal, Exponential, Bimodal, or Right Skewed distributions
-2. **Set Sample Size**: Adjust the slider to change how many values are in each sample (N)
-3. **Draw Samples**: Click the buttons to draw 1, 5, or 1000 samples at a time
-4. **Observe**: Watch as the distribution of sample means becomes increasingly normal, regardless of the parent distribution
-5. **Animate**: Click "Animate" to continuously draw samples and watch the Central Limit Theorem in action!
+1. **Select a Distribution**: Choose from Uniform, Normal, Exponential, Bimodal, Right Skewed, or create your own Custom distribution
+   - For **Custom**: Click and drag on the parent population chart to draw any distribution shape you want!
+2. **Set Sample Size (N)**: Adjust the slider to change how many values are in each sample
+3. **Draw Samples**: 
+   - Click **"Draw Sample of 1"** or **"Draw Sample of 5"** to see the full animation
+   - Watch individual data points drop onto the middle chart one by one
+   - See the sample mean line appear in red
+   - Watch the mean drop down into the sampling distribution
+   - Click **"Draw 1000 Samples"** for quick bulk sampling (without animation)
+4. **Animate**: Click "Animate" to continuously draw samples and watch the Central Limit Theorem in action! Click again to stop.
+5. **Reset**: Clear all samples and start fresh (also clears custom distributions)
+
+## What You're Seeing
+
+- **Top Chart**: The parent population distribution you're sampling from
+- **Middle Chart**: The current sample with individual values shown as blue dots, and the sample mean marked by a red dashed line
+- **Bottom Chart**: The distribution of all sample means collected so far, with a red curve showing the theoretical normal distribution
 
 ## Key Observations
 
@@ -1219,5 +1231,5 @@ document.addEventListener('DOMContentLoaded', () => {
 - **Center**: The mean of the sampling distribution approximates the population mean
 - **Spread**: The standard deviation of the sampling distribution (Standard Error) equals σ/√n, where σ is the population standard deviation and n is the sample size
 
-The red curve overlaid on the sampling distribution shows the theoretical normal distribution, which should match your empirical distribution more closely as you draw more samples!
+Try creating a weird custom distribution (bimodal, trimodal, super skewed) and watch how the CLT still produces a beautifully normal distribution of sample means!
 
