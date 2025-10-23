@@ -145,6 +145,13 @@ ninja.data = [{
           window.open("https://instagram.com/tsangcharles", "_blank");
         },
       },{
+        id: 'social-wechat_qr',
+        title: 'Wechat_qr',
+        section: 'Socials',
+        handler: () => {
+          window.open("", "_blank");
+        },
+      },{
       id: 'light-theme',
       title: 'Change theme to light',
       description: 'Change the theme of the site to Light',
