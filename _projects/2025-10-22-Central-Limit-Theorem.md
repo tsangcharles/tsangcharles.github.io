@@ -3,7 +3,7 @@ layout: page
 title: Central Limit Theorem
 description: Interactive simulation demonstrating the Central Limit Theorem
 importance: 1
-img: /assets/img/clt/preview.svg
+img: /assets/img/clt/preview.png
 category: data-science
 ---
 
@@ -25,21 +25,29 @@ where $\bar X_n = \tfrac{1}{n}\sum_{i=1}^n X_i$.
 
 <style>
 .clt-container {
-    max-width: 900px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 16px;
     font-family: Arial, sans-serif;
+    overflow-x: hidden; /* prevent accidental horizontal scroll on small screens */
+}
+
+/* Responsive layout wrapper */
+.clt-grid {
+    display: flex;
+    flex-direction: column; /* mobile-first: stacked */
+    gap: 16px;
 }
 
 .controls {
-    background: #f5f5f5;
-    padding: 20px;
+    background: white;
+    padding: 12px;
     border-radius: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 .control-group {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .control-group label {
@@ -59,18 +67,58 @@ where $\bar X_n = \tfrac{1}{n}\sum_{i=1}^n X_i$.
 }
 
 .control-group input[type="range"] {
-    width: 300px;
+    width: 260px;
+}
+
+/* Flat slider styling */
+.controls input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 16px; /* match thumb height so it centers */
+    background: transparent; /* track draws background */
+    outline: none;
+}
+.controls input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #74b9ff;
+    border: 2px solid #74b9ff;
+    box-shadow: none;
+    cursor: pointer;
+    margin-top: -6px; /* center over 4px track ( (16-4)/2 ) */
+}
+.controls input[type="range"]::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #74b9ff;
+    border: 2px solid #74b9ff;
+    box-shadow: none;
+    cursor: pointer;
+}
+.controls input[type="range"]::-webkit-slider-runnable-track {
+    height: 4px;
+    background: #e0e0e0;
+    border-radius: 2px;
+}
+.controls input[type="range"]::-moz-range-track {
+    height: 4px;
+    background: #e0e0e0;
+    border-radius: 2px;
 }
 
 .slider-value {
     display: inline-block;
     margin-left: 10px;
     font-weight: bold;
-    color: #0066cc;
+    color: #636e72;
 }
 
 .button-group {
-    margin-top: 20px;
+    margin-top: 12px;
 }
 
 .btn {
@@ -84,40 +132,34 @@ where $\bar X_n = \tfrac{1}{n}\sum_{i=1}^n X_i$.
 }
 
 .btn-primary {
-    background-color: #2196F3;
+    background-color: #636e72;
     color: white;
 }
 
-.btn-primary:hover {
-    background-color: #1976D2;
-}
+.btn-primary:hover { background-color: #4a5256; }
 
 .btn-secondary {
-    background-color: #9C27B0;
+    background-color: #a29bfe;
     color: white;
 }
 
-.btn-secondary:hover {
-    background-color: #7B1FA2;
-}
+.btn-secondary:hover { background-color: #a29bfe; }
 
 .btn-animate {
-    background-color: #9C27B0;
+    background-color: #a29bfe;
     color: white;
 }
 
-.btn-animate:hover {
-    background-color: #7B1FA2;
-}
+.btn-animate:hover { background-color: #a29bfe; }
 
 .visualization {
-    margin-top: 30px;
+    margin-top: 16px;
 }
 
 .chart-container {
-    margin-bottom: 30px;
+    margin-bottom: 8px;
     background: white;
-    padding: 20px;
+    padding: 12px;
     border-radius: 8px;
 }
 
@@ -126,12 +168,13 @@ where $\bar X_n = \tfrac{1}{n}\sum_{i=1}^n X_i$.
     font-weight: bold;
     margin-bottom: 10px;
     color: #333;
+    margin-top: 0;
 }
 
 .stats-display {
-    background: #e9ecef;
-    padding: 15px;
-    border-radius: 8px;
+    background: transparent;
+    padding: 12px 0;
+    border-radius: 0;
     margin-top: 20px;
 }
 
@@ -147,18 +190,54 @@ where $\bar X_n = \tfrac{1}{n}\sum_{i=1}^n X_i$.
 }
 
 .stat-value {
-    color: #0066cc;
+    color: #636e72;
     font-family: monospace;
 }
 
 canvas {
     border: 1px solid #ddd;
     border-radius: 4px;
+    width: 100%; /* make canvas fit container width on mobile */
+    height: auto;
+}
+
+/* Desktop layout: left controls, right charts stacked (parent on top, sampling bottom) */
+@media (min-width: 992px) {
+    .clt-grid {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        grid-template-rows: auto auto;
+        gap: 16px;
+        align-items: center;
+    }
+    .clt-controls { /* alias when the controls sit in grid */
+        grid-column: 1;
+        grid-row: 1 / span 2; /* sidebar height spans both rows */
+        margin-bottom: 0;
+    }
+    .clt-parent {
+        grid-column: 2;
+        grid-row: 1;
+    }
+    .clt-sampling {
+        grid-column: 2;
+        grid-row: 2;
+    }
+    .chart-container canvas {
+        max-height: 200px;
+    }
+    .chart-container {
+        margin-bottom: 8px;
+    }
+    .controls {
+        margin-bottom: 0;
+    }
 }
 </style>
 
 <div class="clt-container">
-    <div class="controls">
+    <div class="clt-grid">
+    <aside class="controls clt-controls">
         <div class="control-group">
             <label for="distribution">Parent Population Distribution:</label>
             <select id="distribution">
@@ -189,15 +268,15 @@ canvas {
             <button class="btn btn-animate" id="animate">Animate</button>
             <button class="btn btn-secondary" id="reset">Reset</button>
         </div>
-    </div>
+    </aside>
 
-    <div class="visualization">
-        <div class="chart-container">
+    <div class="visualization clt-visuals">
+        <section class="chart-container clt-parent" id="parent-container">
             <div class="chart-title">Parent Population Distribution</div>
             <canvas id="populationChart" width="800" height="300"></canvas>
-        </div>
+        </section>
 
-        <div class="chart-container">
+        <section class="chart-container clt-sampling" id="sampling-container">
             <div class="chart-title">Distribution of Sample Means</div>
             <canvas id="samplingChart" width="800" height="300"></canvas>
             <div class="stats-display">
@@ -218,7 +297,8 @@ canvas {
                     <span class="stat-value" id="samplesDrawn">0</span>
                 </div>
             </div>
-        </div>
+        </section>
+    </div>
     </div>
 </div>
 
@@ -231,6 +311,7 @@ class CLTSimulation {
         this.animationId = null;
         
         this.initializeControls();
+        this.setupResize();
         this.drawPopulation();
     }
 
@@ -252,6 +333,43 @@ class CLTSimulation {
         document.getElementById('sample1000').addEventListener('click', () => this.drawSamples(1000));
         document.getElementById('reset').addEventListener('click', () => this.reset());
         document.getElementById('animate').addEventListener('click', () => this.toggleAnimation());
+    }
+
+    setupResize() {
+        const doResize = () => {
+            this.resizeCanvases();
+            // Re-draw with current state
+            this.drawPopulation();
+            this.drawSamplingDistribution();
+            this.updateStats();
+        };
+        // Initial sizing
+        this.resizeCanvases();
+        // Debounced window resize
+        window.addEventListener('resize', this.debounce(doResize, 150));
+    }
+
+    resizeCanvases() {
+        const popCanvas = document.getElementById('populationChart');
+        const sampCanvas = document.getElementById('samplingChart');
+        [popCanvas, sampCanvas].forEach((canvas) => {
+            if (!canvas) return;
+            const container = canvas.parentElement;
+            const width = Math.max(260, Math.floor(container.clientWidth));
+            const height = window.innerWidth >= 992 ? 180 : 220; // much shorter on desktop
+            canvas.style.width = '100%';
+            canvas.style.height = height + 'px';
+            canvas.width = width;
+            canvas.height = height;
+        });
+    }
+
+    debounce(fn, wait) {
+        let t;
+        return (...args) => {
+            clearTimeout(t);
+            t = setTimeout(() => fn.apply(this, args), wait);
+        };
     }
 
     toggleAnimation() {
@@ -312,6 +430,7 @@ class CLTSimulation {
         const dist = document.getElementById('distribution').value;
         const canvas = document.getElementById('populationChart');
         const ctx = canvas.getContext('2d');
+        const pad = { top: 20, right: 20, bottom: 26, left: 40 };
         
         // Generate population data
         const data = [];
@@ -336,24 +455,36 @@ class CLTSimulation {
             if (binIndex >= 0) histogram[binIndex]++;
         });
 
-        // Draw histogram
+        // Draw histogram with padding
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        const maxCount = Math.max(...histogram);
-        const barWidth = canvas.width / bins;
+        const maxCount = Math.max(...histogram) || 1;
+        const plotWidth = canvas.width - pad.left - pad.right;
+        const plotHeight = canvas.height - pad.top - pad.bottom;
+        const barWidth = plotWidth / bins;
 
-        ctx.fillStyle = '#4CAF50';
+    ctx.fillStyle = '#636e72';
         histogram.forEach((count, i) => {
-            const barHeight = (count / maxCount) * (canvas.height - 40);
-            ctx.fillRect(i * barWidth, canvas.height - barHeight - 20, barWidth - 1, barHeight);
+            const barHeight = (count / maxCount) * plotHeight;
+            const x = pad.left + i * barWidth;
+            const y = canvas.height - pad.bottom - barHeight;
+            ctx.fillRect(x, y, Math.max(1, barWidth - 1), barHeight);
         });
 
-        // Draw axis labels
+        // Axis baseline
+        ctx.strokeStyle = '#bbb';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(pad.left, canvas.height - pad.bottom + 0.5);
+        ctx.lineTo(canvas.width - pad.right, canvas.height - pad.bottom + 0.5);
+        ctx.stroke();
+
+        // Draw axis labels (0 .. 10)
         ctx.fillStyle = '#000';
         ctx.font = '12px Arial';
         ctx.textAlign = 'center';
         for (let i = 0; i <= 10; i += 2) {
-            const x = (i / 10) * canvas.width;
-            ctx.fillText(i.toString(), x, canvas.height - 5);
+            const x = pad.left + (i / 10) * plotWidth;
+            ctx.fillText(i.toString(), x, canvas.height - 6);
         }
 
         this.updateExpectedSD();
@@ -397,14 +528,19 @@ class CLTSimulation {
             if (binIndex >= 0) histogram[binIndex]++;
         });
 
-        // Draw histogram
-        const maxCount = Math.max(...histogram);
-        const barWidth = canvas.width / bins;
+        // Draw histogram with padding
+        const maxCount = Math.max(...histogram) || 1;
+        const pad = { top: 20, right: 20, bottom: 26, left: 40 };
+        const plotWidth = canvas.width - pad.left - pad.right;
+        const plotHeight = canvas.height - pad.top - pad.bottom;
+        const barWidth = plotWidth / bins;
 
-        ctx.fillStyle = '#2196F3';
+    ctx.fillStyle = '#74b9ff';
         histogram.forEach((count, i) => {
-            const barHeight = (count / maxCount) * (canvas.height - 40);
-            ctx.fillRect(i * barWidth, canvas.height - barHeight - 20, barWidth - 1, barHeight);
+            const barHeight = (count / maxCount) * plotHeight;
+            const x = pad.left + i * barWidth;
+            const y = canvas.height - pad.bottom - barHeight;
+            ctx.fillRect(x, y, Math.max(1, barWidth - 1), barHeight);
         });
 
         // Overlay normal curve
@@ -417,25 +553,33 @@ class CLTSimulation {
             ctx.lineWidth = 3;
             ctx.beginPath();
 
-            for (let x = 0; x < canvas.width; x++) {
-                const value = (x / canvas.width) * (max - min) + min;
+            for (let px = 0; px <= plotWidth; px++) {
+                const value = (px / plotWidth) * (max - min) + min;
                 const normalValue = (1 / (sdOfMeans * Math.sqrt(2 * Math.PI))) * 
                     Math.exp(-0.5 * Math.pow((value - meanOfMeans) / sdOfMeans, 2));
-                const y = canvas.height - 20 - (normalValue * this.sampleMeans.length * binWidth) * (canvas.height - 40) / maxCount;
-                
-                if (x === 0) ctx.moveTo(x, y);
+                const yVal = (normalValue * this.sampleMeans.length * binWidth) * (plotHeight) / maxCount;
+                const x = pad.left + px;
+                const y = canvas.height - pad.bottom - yVal;
+                if (px === 0) ctx.moveTo(x, y);
                 else ctx.lineTo(x, y);
             }
             ctx.stroke();
         }
+        // Axis baseline
+        ctx.strokeStyle = '#bbb';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(pad.left, canvas.height - pad.bottom + 0.5);
+        ctx.lineTo(canvas.width - pad.right, canvas.height - pad.bottom + 0.5);
+        ctx.stroke();
 
         // Draw axis labels
         ctx.fillStyle = '#000';
         ctx.font = '12px Arial';
         ctx.textAlign = 'center';
         for (let i = 0; i <= 10; i += 2) {
-            const x = (i / 10) * canvas.width;
-            ctx.fillText(i.toString(), x, canvas.height - 5);
+            const x = pad.left + (i / 10) * (canvas.width - pad.left - pad.right);
+            ctx.fillText(i.toString(), x, canvas.height - 6);
         }
     }
 
