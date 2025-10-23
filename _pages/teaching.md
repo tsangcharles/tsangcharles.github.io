@@ -19,7 +19,7 @@ nav_order: 5
 **MMF1922H (Data Science)**  
 2020 Fall, 2021 Fall, 2022 Fall, 2023 Fall, 2024 Fall, 2025 Fall
 
-**MAT133Y1Y (Calculus and Linear Algebra for Commerce)**  
+**MAT133Y (Calculus and Linear Algebra for Commerce)**  
 2016 Summer
 
 ---
@@ -35,7 +35,7 @@ nav_order: 5
 **MAT237Y (Multivariable Calculus)**  
 2013 Summer, 2014 Summer
 
-**MAT244H1 (Introduction to Ordinary Differential Equations)**  
+**MAT244H (Introduction to Ordinary Differential Equations)**  
 2012 Summer
 
 **APM466H/MAT1856H (Mathematical Theory of Finance)**  
@@ -139,7 +139,7 @@ nav_order: 5
 **MATA23H (Linear Algebra I)**  
 2012 Summer, 2014 Winter
 
-**MATA33H3Y (Calculus for Management II)**  
+**MATA33H (Calculus for Management II)**  
 2013 Summer
 
 **MATC34H (Complex Variables)**  
