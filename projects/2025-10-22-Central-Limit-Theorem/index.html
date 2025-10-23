@@ -1,6 +1,6 @@
 <!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Central Limit Theorem | Charles Tsang </title> <meta name="author" content="Charles Tsang"> <meta name="description" content="Interactive simulation demonstrating the Central Limit Theorem"> <meta name="keywords" content="data science, machine learning, big data, software engineering"> <link rel="stylesheet" href="/assets/css/bootstrap.min.css?a4b3f509e79c54a512b890d73235ef04"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="/assets/css/academicons.min.css?f0b7046b84e425c55f3463ac249818f5"> <link defer rel="stylesheet" href="/assets/css/scholar-icons.css?62b2ac103a88034e6882a5be5f3e2772"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="/assets/img/charmander.png?104d43642867af0c24ea22a6e040145e"> <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e"> <link rel="canonical" href="https://tsangcharles.github.io/projects/2025-10-22-Central-Limit-Theorem/"> <script src="/assets/js/theme.js?8ced3786f82a81510cbf4ac8bd65cee3"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
     initTheme();
-  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Charles</span> Tsang </a> <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse text-right" id="navbarNav"> <ul class="navbar-nav ml-auto flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item "> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item active"> <a class="nav-link" href="/projects/">projects <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">repositories </a> </li> <li class="nav-item "> <a class="nav-link" href="/teaching/">teaching </a> </li> <li class="toggle-container"> <button id="light-toggle" title="Change theme"> <i class="ti ti-sun-moon" id="light-toggle-system"></i> <i class="ti ti-moon-filled" id="light-toggle-dark"></i> <i class="ti ti-sun-filled" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Central Limit Theorem</h1> <p class="post-description">Interactive simulation demonstrating the Central Limit Theorem</p> </header> <article> <p>The Central Limit Theorem is one of the most fundamental concepts in statistics. Formally, if $X_1,\dots,X_n$ are i.i.d. with $\mathbb{E}[X_i]=\mu$ and $\operatorname{Var}(X_i)=\sigma^2&lt;\infty$, then \(\frac{\sum_{i=1}^n X_i - n\mu}{\sigma\sqrt{n}} \xrightarrow{d} \mathcal{N}(0,1),\) equivalently, \(\sqrt{n}\,\frac{\bar X_n - \mu}{\sigma} \xrightarrow{d} \mathcal{N}(0,1),\) where $\bar X_n = \tfrac{1}{n}\sum_{i=1}^n X_i$. The proof is elegant and surprisingly straightforward. At a high level, you compute the characteristic function of the normalized sample mean and show that the higher-order terms in its Taylor expansion vanish as $n$ grows, so it converges to the characteristic function of a standard normal.</p> <p>In practice, the CLT says that the distribution of sample means becomes approximately normal as the sample size increases, regardless of the shape of the underlying population (assuming finite variance).</p> <p>As a student, I struggled to build intuition for the CLT. An interactive demo I once used finally made it click, so I recreated a version here.</p> <style>.clt-container{max-width:1100px;margin:0 auto;padding:16px;font-family:Arial,sans-serif;overflow-x:hidden}.clt-grid{display:flex;flex-direction:column;gap:16px}.controls{background:white;padding:12px;border-radius:8px;margin-bottom:16px}.control-group{margin-bottom:12px}.control-group label{display:block;font-weight:bold;margin-bottom:5px;color:#333}.control-group select,.control-group input[type="number"]{padding:8px;border:1px solid #ccc;border-radius:4px;font-size:14px;width:200px}.control-group input[type="range"]{width:260px}.controls input[type="range"]{-webkit-appearance:none;appearance:none;height:16px;background:transparent;outline:0}.controls input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;border-radius:50%;background:#74b9ff;border:2px solid #74b9ff;box-shadow:none;cursor:pointer;margin-top:-6px}.controls input[type="range"]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#74b9ff;border:2px solid #74b9ff;box-shadow:none;cursor:pointer}.controls input[type="range"]::-webkit-slider-runnable-track{height:4px;background:#e0e0e0;border-radius:2px}.controls input[type="range"]::-moz-range-track{height:4px;background:#e0e0e0;border-radius:2px}.slider-value{display:inline-block;margin-left:10px;font-weight:bold;color:#636e72}.button-group{margin-top:12px}.btn{padding:10px 20px;margin-right:10px;border:0;border-radius:4px;font-size:14px;cursor:pointer;transition:background-color .3s}.btn-primary{background-color:#636e72;color:white}.btn-primary:hover{background-color:#4a5256}.btn-secondary{background-color:#a29bfe;color:white}.btn-secondary:hover{background-color:#a29bfe}.btn-animate{background-color:#a29bfe;color:white}.btn-animate:hover{background-color:#a29bfe}.visualization{margin-top:16px}.chart-container{margin-bottom:8px;background:white;padding:12px;border-radius:8px}.chart-title{font-size:18px;font-weight:bold;margin-bottom:10px;color:#333;margin-top:0}.stats-display{background:transparent;padding:12px 0;border-radius:0;margin-top:20px}.stat-item{display:inline-block;margin-right:20px;margin-bottom:10px}.stat-label{font-weight:bold;color:#555}.stat-value{color:#636e72;font-family:monospace}canvas{border:1px solid #ddd;border-radius:4px;width:100%;height:auto}@media(min-width:992px){.clt-grid{display:grid;grid-template-columns:300px 1fr;grid-template-rows:auto auto;gap:16px;align-items:center}.clt-controls{grid-column:1;grid-row:1 / span 2;margin-bottom:0}.clt-parent{grid-column:2;grid-row:1}.clt-sampling{grid-column:2;grid-row:2}.chart-container canvas{max-height:200px}.chart-container{margin-bottom:8px}.controls{margin-bottom:0}}</style> <div class="clt-container"> <div class="clt-grid"> <aside class="controls clt-controls"> <div class="control-group"> <label for="distribution">Parent Population Distribution:</label> <select id="distribution"> <option value="uniform">Uniform</option> <option value="normal">Normal</option> <option value="exponential">Exponential</option> <option value="bimodal">Bimodal</option> <option value="skewed">Right Skewed</option> </select> </div> <div class="control-group"> <label for="sampleSize">Sample Size (N): <span class="slider-value" id="sampleSizeValue">5</span></label> <input type="range" id="sampleSize" min="2" max="50" value="5" step="1"> </div> <div class="control-group"> <label>Number of Samples: <span class="slider-value" id="numSamplesValue">0</span></label> </div> <div class="button-group"> <button class="btn btn-primary" id="sample1">Draw Sample of 1</button> <button class="btn btn-primary" id="sample5">Draw Sample of 5</button> <button class="btn btn-primary" id="sample1000">Draw 1000 Samples</button> </div> <div class="button-group"> <button class="btn btn-animate" id="animate">Animate</button> <button class="btn btn-secondary" id="reset">Reset</button> </div> </aside> <div class="visualization clt-visuals"> <section class="chart-container clt-parent" id="parent-container"> <div class="chart-title">Parent Population Distribution</div> <canvas id="populationChart" width="800" height="200"></canvas> </section> <section class="chart-container clt-sample" id="sample-container"> <div class="chart-title">Current Sample (N = <span id="currentSampleSize">5</span>)</div> <canvas id="sampleChart" width="800" height="150"></canvas> <div class="stats-display" style="padding: 10px; margin-top: 10px;"> <div class="stat-item"> <span class="stat-label">Sample Mean:</span> <span class="stat-value" id="currentSampleMean">—</span> </div> </div> </section> <section class="chart-container clt-sampling" id="sampling-container"> <div class="chart-title">Distribution of Sample Means</div> <canvas id="samplingChart" width="800" height="250"></canvas> <div class="stats-display"> <div class="stat-item"> <span class="stat-label">Mean of Means:</span> <span class="stat-value" id="meanOfMeans">—</span> </div> <div class="stat-item"> <span class="stat-label">SD of Means:</span> <span class="stat-value" id="sdOfMeans">—</span> </div> <div class="stat-item"> <span class="stat-label">Expected SD (σ/√n):</span> <span class="stat-value" id="expectedSD">—</span> </div> <div class="stat-item"> <span class="stat-label">Samples Drawn:</span> <span class="stat-value" id="samplesDrawn">0</span> </div> </div> </section> </div> </div> </div> <script>
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Charles</span> Tsang </a> <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse text-right" id="navbarNav"> <ul class="navbar-nav ml-auto flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item "> <a class="nav-link" href="/blog/">blog </a> </li> <li class="nav-item active"> <a class="nav-link" href="/projects/">projects <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">repositories </a> </li> <li class="nav-item "> <a class="nav-link" href="/teaching/">teaching </a> </li> <li class="toggle-container"> <button id="light-toggle" title="Change theme"> <i class="ti ti-sun-moon" id="light-toggle-system"></i> <i class="ti ti-moon-filled" id="light-toggle-dark"></i> <i class="ti ti-sun-filled" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Central Limit Theorem</h1> <p class="post-description">Interactive simulation demonstrating the Central Limit Theorem</p> </header> <article> <p>The Central Limit Theorem is one of the most fundamental concepts in statistics. Formally, if $X_1,\dots,X_n$ are i.i.d. with $\mathbb{E}[X_i]=\mu$ and $\operatorname{Var}(X_i)=\sigma^2&lt;\infty$, then \(\frac{\sum_{i=1}^n X_i - n\mu}{\sigma\sqrt{n}} \xrightarrow{d} \mathcal{N}(0,1),\) equivalently, \(\sqrt{n}\,\frac{\bar X_n - \mu}{\sigma} \xrightarrow{d} \mathcal{N}(0,1),\) where $\bar X_n = \tfrac{1}{n}\sum_{i=1}^n X_i$. The proof is elegant and surprisingly straightforward. At a high level, you compute the characteristic function of the normalized sample mean and show that the higher-order terms in its Taylor expansion vanish as $n$ grows, so it converges to the characteristic function of a standard normal.</p> <p>In practice, the CLT says that the distribution of sample means becomes approximately normal as the sample size increases, regardless of the shape of the underlying population (assuming finite variance).</p> <p>As a student, I struggled to build intuition for the CLT. An interactive demo I once used finally made it click, so I recreated a version here.</p> <style>.clt-container{max-width:1100px;margin:0 auto;padding:16px;font-family:Arial,sans-serif;overflow-x:hidden}.clt-grid{display:flex;flex-direction:column;gap:16px}.controls{background:white;padding:12px;border-radius:8px;margin-bottom:16px}.control-group{margin-bottom:12px}.control-group label{display:block;font-weight:bold;margin-bottom:5px;color:#333}.control-group select,.control-group input[type="number"]{padding:8px;border:1px solid #ccc;border-radius:4px;font-size:14px;width:200px}.control-group input[type="range"]{width:260px}.controls input[type="range"]{-webkit-appearance:none;appearance:none;height:16px;background:transparent;outline:0}.controls input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;border-radius:50%;background:#74b9ff;border:2px solid #74b9ff;box-shadow:none;cursor:pointer;margin-top:-6px}.controls input[type="range"]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#74b9ff;border:2px solid #74b9ff;box-shadow:none;cursor:pointer}.controls input[type="range"]::-webkit-slider-runnable-track{height:4px;background:#e0e0e0;border-radius:2px}.controls input[type="range"]::-moz-range-track{height:4px;background:#e0e0e0;border-radius:2px}.slider-value{display:inline-block;margin-left:10px;font-weight:bold;color:#636e72}.button-group{margin-top:12px}.btn{padding:10px 20px;margin-right:10px;border:0;border-radius:4px;font-size:14px;cursor:pointer;transition:background-color .3s}.btn-primary{background-color:#636e72;color:white}.btn-primary:hover{background-color:#4a5256}.btn-secondary{background-color:#a29bfe;color:white}.btn-secondary:hover{background-color:#a29bfe}.btn-animate{background-color:#a29bfe;color:white}.btn-animate:hover{background-color:#a29bfe}.visualization{margin-top:16px}.chart-container{margin-bottom:8px;background:white;padding:12px;border-radius:8px}.chart-title{font-size:18px;font-weight:bold;margin-bottom:10px;color:#333;margin-top:0}.stats-display{background:transparent;padding:12px 0;border-radius:0;margin-top:20px}.stat-item{display:inline-block;margin-right:20px;margin-bottom:10px}.stat-label{font-weight:bold;color:#555}.stat-value{color:#636e72;font-family:monospace}canvas{border:1px solid #ddd;border-radius:4px;width:100%;height:auto}@media(min-width:992px){.clt-grid{display:grid;grid-template-columns:300px 1fr;grid-template-rows:auto auto;gap:16px;align-items:center}.clt-controls{grid-column:1;grid-row:1 / span 2;margin-bottom:0}.clt-parent{grid-column:2;grid-row:1}.clt-sampling{grid-column:2;grid-row:2}.chart-container canvas{max-height:200px}.chart-container{margin-bottom:8px}.controls{margin-bottom:0}}</style> <div class="clt-container"> <div class="clt-grid"> <aside class="controls clt-controls"> <div class="control-group"> <label for="distribution">Parent Population Distribution:</label> <select id="distribution"> <option value="uniform">Uniform</option> <option value="normal">Normal</option> <option value="exponential">Exponential</option> <option value="bimodal">Bimodal</option> <option value="skewed">Right Skewed</option> </select> </div> <div class="control-group"> <label for="sampleSize">Sample Size (N): <span class="slider-value" id="sampleSizeValue">5</span></label> <input type="range" id="sampleSize" min="2" max="50" value="5" step="1"> </div> <div class="control-group"> <label>Number of Samples: <span class="slider-value" id="numSamplesValue">0</span></label> </div> <div class="button-group"> <button class="btn btn-primary" id="sample1">Draw Sample of 1</button> <button class="btn btn-primary" id="sample5">Draw Sample of 5</button> <button class="btn btn-primary" id="sample1000">Draw 1000 Samples</button> </div> <div class="button-group"> <button class="btn btn-animate" id="animate">Animate</button> <button class="btn btn-secondary" id="reset">Reset</button> </div> </aside> <div class="visualization clt-visuals"> <section class="chart-container clt-parent" id="parent-container"> <div class="chart-title">Parent Population Distribution</div> <canvas id="populationChart" width="800" height="200"></canvas> </section> <section class="chart-container clt-sample" id="sample-container"> <div class="chart-title">Current Sample (N = <span id="currentSampleSize">5</span>)</div> <canvas id="sampleChart" width="800" height="150"></canvas> </section> <section class="chart-container clt-sampling" id="sampling-container"> <div class="chart-title">Distribution of Sample Means</div> <canvas id="samplingChart" width="800" height="250"></canvas> <div class="stats-display"> <div class="stat-item"> <span class="stat-label">Mean of Means:</span> <span class="stat-value" id="meanOfMeans">—</span> </div> <div class="stat-item"> <span class="stat-label">SD of Means:</span> <span class="stat-value" id="sdOfMeans">—</span> </div> <div class="stat-item"> <span class="stat-label">Expected SD (σ/√n):</span> <span class="stat-value" id="expectedSD">—</span> </div> <div class="stat-item"> <span class="stat-label">Samples Drawn:</span> <span class="stat-value" id="samplesDrawn">0</span> </div> </div> </section> </div> </div> </div> <script>
 class CLTSimulation {
     constructor() {
         this.sampleMeans = [];
@@ -120,7 +120,6 @@ class CLTSimulation {
             document.getElementById('animate').textContent = 'Animate';
         }
         document.getElementById('numSamplesValue').textContent = '0';
-        document.getElementById('currentSampleMean').textContent = '—';
         this.drawPopulation();
         this.drawCurrentSample();
         this.drawSamplingDistribution();
@@ -324,15 +323,17 @@ class CLTSimulation {
             this.currentSample.push(this.generateValue(dist));
         }
         
-        // Draw the current sample
-        this.drawCurrentSample();
+        // Animate each point dropping onto the axis
+        await this.animateSamplePoints();
         
         // Calculate mean
         const mean = this.currentSample.reduce((a, b) => a + b, 0) / this.currentSample.length;
-        document.getElementById('currentSampleMean').textContent = mean.toFixed(3);
         
-        // Wait a bit to show the sample
-        await new Promise(resolve => setTimeout(resolve, 300));
+        // Animate the mean line appearing
+        await this.animateMeanLine(mean);
+        
+        // Wait a bit to show the complete sample
+        await new Promise(resolve => setTimeout(resolve, 400));
         
         // Animate the mean "dropping" into the sampling distribution
         await this.animateMeanDrop(mean);
@@ -346,6 +347,152 @@ class CLTSimulation {
         this.updateStats();
         
         this.animatingDrop = false;
+    }
+
+    async animateSamplePoints() {
+        const canvas = document.getElementById('sampleChart');
+        const ctx = canvas.getContext('2d');
+        const min = 0;
+        const max = 10;
+        const radius = 6;
+        const pad = { top: 20, right: 20, bottom: 26, left: 40 };
+        const plotWidth = canvas.width - pad.left - pad.right;
+
+        for (let pointIndex = 0; pointIndex < this.currentSample.length; pointIndex++) {
+            const value = this.currentSample[pointIndex];
+            const x = pad.left + (value / (max - min)) * plotWidth;
+            const baseY = canvas.height - pad.bottom;
+            
+            // Calculate final y position with stacking
+            let finalY = baseY - radius - 5;
+            for (let i = 0; i < pointIndex; i++) {
+                const otherX = pad.left + (this.currentSample[i] / (max - min)) * plotWidth;
+                if (Math.abs(x - otherX) < radius * 2) {
+                    finalY -= radius * 2;
+                }
+            }
+
+            // Animate the point dropping
+            const steps = 10;
+            const startY = -radius * 2;
+            
+            for (let step = 0; step <= steps; step++) {
+                const progress = step / steps;
+                // Easing function for bounce effect
+                const easeProgress = progress < 0.5 
+                    ? 2 * progress * progress 
+                    : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+                const y = startY + (finalY - startY) * easeProgress;
+                
+                // Redraw the canvas with all points up to this one
+                this.drawCurrentSamplePartial(pointIndex, y);
+                
+                await new Promise(resolve => setTimeout(resolve, 15));
+            }
+        }
+    }
+
+    drawCurrentSamplePartial(upToIndex, currentY = null) {
+        const canvas = document.getElementById('sampleChart');
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        const min = 0;
+        const max = 10;
+        const radius = 6;
+        const pad = { top: 20, right: 20, bottom: 26, left: 40 };
+        const plotWidth = canvas.width - pad.left - pad.right;
+
+        // Draw x-axis
+        ctx.strokeStyle = '#bbb';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(pad.left, canvas.height - pad.bottom + 0.5);
+        ctx.lineTo(canvas.width - pad.right, canvas.height - pad.bottom + 0.5);
+        ctx.stroke();
+
+        // Draw axis labels
+        ctx.fillStyle = '#000';
+        ctx.font = '12px Arial';
+        ctx.textAlign = 'center';
+        for (let i = 0; i <= 10; i += 2) {
+            const x = pad.left + (i / 10) * plotWidth;
+            ctx.fillText(i.toString(), x, canvas.height - 6);
+        }
+
+        // Draw all completed points
+        for (let index = 0; index <= upToIndex; index++) {
+            const value = this.currentSample[index];
+            const x = pad.left + (value / (max - min)) * plotWidth;
+            const baseY = canvas.height - pad.bottom;
+            
+            let y = baseY - radius - 5;
+            for (let i = 0; i < index; i++) {
+                const otherX = pad.left + (this.currentSample[i] / (max - min)) * plotWidth;
+                if (Math.abs(x - otherX) < radius * 2) {
+                    y -= radius * 2;
+                }
+            }
+
+            // Use currentY for the last point being animated
+            if (index === upToIndex && currentY !== null) {
+                y = currentY;
+            }
+
+            // Draw point
+            ctx.fillStyle = '#74b9ff';
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.strokeStyle = '#0984e3';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+        }
+    }
+
+    async animateMeanLine(mean) {
+        const canvas = document.getElementById('sampleChart');
+        const ctx = canvas.getContext('2d');
+        const min = 0;
+        const max = 10;
+        const pad = { top: 20, right: 20, bottom: 26, left: 40 };
+        const plotWidth = canvas.width - pad.left - pad.right;
+        const meanX = pad.left + (mean / (max - min)) * plotWidth;
+
+        // Animate the line growing from bottom to top
+        const steps = 8;
+        const startY = canvas.height - pad.bottom - 5;
+        const endY = pad.top;
+
+        for (let step = 0; step <= steps; step++) {
+            const progress = step / steps;
+            const currentTopY = startY - (startY - endY) * progress;
+
+            // Redraw everything
+            this.drawCurrentSamplePartial(this.currentSample.length - 1);
+
+            // Draw the mean line (growing upward)
+            ctx.strokeStyle = '#FF5722';
+            ctx.lineWidth = 3;
+            ctx.setLineDash([5, 5]);
+            ctx.beginPath();
+            ctx.moveTo(meanX, startY);
+            ctx.lineTo(meanX, currentTopY);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Draw the mean label with fade-in effect
+            if (step > steps / 2) {
+                ctx.globalAlpha = (step - steps / 2) / (steps / 2);
+                ctx.fillStyle = '#FF5722';
+                ctx.font = 'bold 12px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText(`x̄ = ${mean.toFixed(2)}`, meanX, pad.top - 5);
+                ctx.globalAlpha = 1.0;
+            }
+
+            await new Promise(resolve => setTimeout(resolve, 30));
+        }
     }
 
     async animateMeanDrop(mean) {
@@ -402,7 +549,6 @@ class CLTSimulation {
             this.currentSample.push(this.generateValue(dist));
         }
         const lastMean = this.currentSample.reduce((a, b) => a + b, 0) / this.currentSample.length;
-        document.getElementById('currentSampleMean').textContent = lastMean.toFixed(3);
         this.drawCurrentSample();
 
         document.getElementById('numSamplesValue').textContent = this.sampleMeans.length;
