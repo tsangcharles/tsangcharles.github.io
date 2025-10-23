@@ -4,7 +4,7 @@ title: Should You Use Reinforcement Learning?
 date: 2021-02-14
 description: Sharing my experience on reinforcement learning
 tags: machine-learning
-categories: industry-experience
+categories: industry-insights
 giscus_comments: false
 ---
 

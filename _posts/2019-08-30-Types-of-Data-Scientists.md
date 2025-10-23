@@ -3,8 +3,8 @@ layout: post
 title: Different types of Data Scientist
 date: 2019-08-30
 description: Sharing my thoughts on different thoughts of types of Data Scientists
-tags: data-science
-categories: advice
+tags: data-science, career
+categories: industry-insights
 giscus_comments: false
 ---
 

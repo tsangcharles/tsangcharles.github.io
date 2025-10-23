@@ -3,8 +3,8 @@ layout: post
 title: Sharing my Thoughts on (Data Science) Consulting
 date: 2020-05-17
 description: Miscellaneous thoughts about my job for the past few years
-tags: consulting
-categories: advice
+tags: consulting, career
+categories: industry-insights
 giscus_comments: false
 ---
 
