@@ -3,7 +3,7 @@ layout: post
 title: Past and Present of Data Science
 date: 2025-10-21
 description: History of Data Science Career
-tags: data science
+tags: data-science
 categories: advice
 giscus_comments: false
 ---
