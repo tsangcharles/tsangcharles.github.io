@@ -7,8 +7,25 @@ class OverfitDemo {
         this.lambda = 0;
         this.data = this.generateData();
         this.testData = this.generateData(30, true);
+        this.computeFixedYRange(); // Compute y-range once at init
         this.initUI();
         this.draw();
+    }
+
+    computeFixedYRange() {
+        // Compute y-range from data only (not from fitted curve) to keep zoom stable
+        let yMin = Infinity, yMax = -Infinity;
+        this.data.forEach(d => {
+            if (d.y < yMin) yMin = d.y;
+            if (d.y > yMax) yMax = d.y;
+        });
+        this.testData.forEach(d => {
+            if (d.y < yMin) yMin = d.y;
+            if (d.y > yMax) yMax = d.y;
+        });
+        const span = (yMax - yMin) || 1;
+        this.fixedYMin = yMin - 0.1 * span;
+        this.fixedYMax = yMax + 0.1 * span;
     }
 
     generateData(n = 30, test = false) {
@@ -51,6 +68,7 @@ class OverfitDemo {
         document.getElementById('resetBtn').addEventListener('click', () => {
             this.data = this.generateData();
             this.testData = this.generateData(30, true);
+            this.computeFixedYRange(); // Recompute y-range on reset
             this.draw();
         });
     }
@@ -100,18 +118,9 @@ class OverfitDemo {
         // Fit once to get curve and for y-range
         const coef = this.fitPolynomial(this.data, this.degree, this.lambda);
 
-        // Determine y-range from data, test, and fitted curve
-        let yMin = Infinity, yMax = -Infinity;
-        const upd = (y) => { if (y < yMin) yMin = y; if (y > yMax) yMax = y; };
-        this.data.forEach(d => upd(d.y));
-        this.testData.forEach(d => upd(d.y));
-        for (let i = 0; i <= 400; i++) {
-            const xv = xMin + (i / 400) * (xMax - xMin);
-            upd(this.predict(xv, coef));
-        }
-        const span = (yMax - yMin) || 1;
-        yMin -= 0.1 * span;
-        yMax += 0.1 * span;
+        // Use fixed y-range (computed at init) instead of recalculating
+        const yMin = this.fixedYMin;
+        const yMax = this.fixedYMax;
 
         const toX = (x) => pad.left + ((x - xMin) / (xMax - xMin)) * plotWidth;
         const toY = (y) => pad.top + (yMax - y) / (yMax - yMin) * plotHeight;
