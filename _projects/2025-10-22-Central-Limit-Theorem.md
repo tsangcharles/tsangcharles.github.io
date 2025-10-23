@@ -279,12 +279,6 @@ canvas {
         <section class="chart-container clt-sample" id="sample-container">
             <div class="chart-title">Current Sample (N = <span id="currentSampleSize">5</span>)</div>
             <canvas id="sampleChart" width="800" height="150"></canvas>
-            <div class="stats-display" style="padding: 10px; margin-top: 10px;">
-                <div class="stat-item">
-                    <span class="stat-label">Sample Mean:</span>
-                    <span class="stat-value" id="currentSampleMean">—</span>
-                </div>
-            </div>
         </section>
 
         <section class="chart-container clt-sampling" id="sampling-container">
@@ -433,7 +427,6 @@ class CLTSimulation {
             document.getElementById('animate').textContent = 'Animate';
         }
         document.getElementById('numSamplesValue').textContent = '0';
-        document.getElementById('currentSampleMean').textContent = '—';
         this.drawPopulation();
         this.drawCurrentSample();
         this.drawSamplingDistribution();
@@ -637,15 +630,17 @@ class CLTSimulation {
             this.currentSample.push(this.generateValue(dist));
         }
         
-        // Draw the current sample
-        this.drawCurrentSample();
+        // Animate each point dropping onto the axis
+        await this.animateSamplePoints();
         
         // Calculate mean
         const mean = this.currentSample.reduce((a, b) => a + b, 0) / this.currentSample.length;
-        document.getElementById('currentSampleMean').textContent = mean.toFixed(3);
         
-        // Wait a bit to show the sample
-        await new Promise(resolve => setTimeout(resolve, 300));
+        // Animate the mean line appearing
+        await this.animateMeanLine(mean);
+        
+        // Wait a bit to show the complete sample
+        await new Promise(resolve => setTimeout(resolve, 400));
         
         // Animate the mean "dropping" into the sampling distribution
         await this.animateMeanDrop(mean);
@@ -659,6 +654,152 @@ class CLTSimulation {
         this.updateStats();
         
         this.animatingDrop = false;
+    }
+
+    async animateSamplePoints() {
+        const canvas = document.getElementById('sampleChart');
+        const ctx = canvas.getContext('2d');
+        const min = 0;
+        const max = 10;
+        const radius = 6;
+        const pad = { top: 20, right: 20, bottom: 26, left: 40 };
+        const plotWidth = canvas.width - pad.left - pad.right;
+
+        for (let pointIndex = 0; pointIndex < this.currentSample.length; pointIndex++) {
+            const value = this.currentSample[pointIndex];
+            const x = pad.left + (value / (max - min)) * plotWidth;
+            const baseY = canvas.height - pad.bottom;
+            
+            // Calculate final y position with stacking
+            let finalY = baseY - radius - 5;
+            for (let i = 0; i < pointIndex; i++) {
+                const otherX = pad.left + (this.currentSample[i] / (max - min)) * plotWidth;
+                if (Math.abs(x - otherX) < radius * 2) {
+                    finalY -= radius * 2;
+                }
+            }
+
+            // Animate the point dropping
+            const steps = 10;
+            const startY = -radius * 2;
+            
+            for (let step = 0; step <= steps; step++) {
+                const progress = step / steps;
+                // Easing function for bounce effect
+                const easeProgress = progress < 0.5 
+                    ? 2 * progress * progress 
+                    : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+                const y = startY + (finalY - startY) * easeProgress;
+                
+                // Redraw the canvas with all points up to this one
+                this.drawCurrentSamplePartial(pointIndex, y);
+                
+                await new Promise(resolve => setTimeout(resolve, 15));
+            }
+        }
+    }
+
+    drawCurrentSamplePartial(upToIndex, currentY = null) {
+        const canvas = document.getElementById('sampleChart');
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        const min = 0;
+        const max = 10;
+        const radius = 6;
+        const pad = { top: 20, right: 20, bottom: 26, left: 40 };
+        const plotWidth = canvas.width - pad.left - pad.right;
+
+        // Draw x-axis
+        ctx.strokeStyle = '#bbb';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(pad.left, canvas.height - pad.bottom + 0.5);
+        ctx.lineTo(canvas.width - pad.right, canvas.height - pad.bottom + 0.5);
+        ctx.stroke();
+
+        // Draw axis labels
+        ctx.fillStyle = '#000';
+        ctx.font = '12px Arial';
+        ctx.textAlign = 'center';
+        for (let i = 0; i <= 10; i += 2) {
+            const x = pad.left + (i / 10) * plotWidth;
+            ctx.fillText(i.toString(), x, canvas.height - 6);
+        }
+
+        // Draw all completed points
+        for (let index = 0; index <= upToIndex; index++) {
+            const value = this.currentSample[index];
+            const x = pad.left + (value / (max - min)) * plotWidth;
+            const baseY = canvas.height - pad.bottom;
+            
+            let y = baseY - radius - 5;
+            for (let i = 0; i < index; i++) {
+                const otherX = pad.left + (this.currentSample[i] / (max - min)) * plotWidth;
+                if (Math.abs(x - otherX) < radius * 2) {
+                    y -= radius * 2;
+                }
+            }
+
+            // Use currentY for the last point being animated
+            if (index === upToIndex && currentY !== null) {
+                y = currentY;
+            }
+
+            // Draw point
+            ctx.fillStyle = '#74b9ff';
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.strokeStyle = '#0984e3';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+        }
+    }
+
+    async animateMeanLine(mean) {
+        const canvas = document.getElementById('sampleChart');
+        const ctx = canvas.getContext('2d');
+        const min = 0;
+        const max = 10;
+        const pad = { top: 20, right: 20, bottom: 26, left: 40 };
+        const plotWidth = canvas.width - pad.left - pad.right;
+        const meanX = pad.left + (mean / (max - min)) * plotWidth;
+
+        // Animate the line growing from bottom to top
+        const steps = 8;
+        const startY = canvas.height - pad.bottom - 5;
+        const endY = pad.top;
+
+        for (let step = 0; step <= steps; step++) {
+            const progress = step / steps;
+            const currentTopY = startY - (startY - endY) * progress;
+
+            // Redraw everything
+            this.drawCurrentSamplePartial(this.currentSample.length - 1);
+
+            // Draw the mean line (growing upward)
+            ctx.strokeStyle = '#FF5722';
+            ctx.lineWidth = 3;
+            ctx.setLineDash([5, 5]);
+            ctx.beginPath();
+            ctx.moveTo(meanX, startY);
+            ctx.lineTo(meanX, currentTopY);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Draw the mean label with fade-in effect
+            if (step > steps / 2) {
+                ctx.globalAlpha = (step - steps / 2) / (steps / 2);
+                ctx.fillStyle = '#FF5722';
+                ctx.font = 'bold 12px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText(`x̄ = ${mean.toFixed(2)}`, meanX, pad.top - 5);
+                ctx.globalAlpha = 1.0;
+            }
+
+            await new Promise(resolve => setTimeout(resolve, 30));
+        }
     }
 
     async animateMeanDrop(mean) {
@@ -715,7 +856,6 @@ class CLTSimulation {
             this.currentSample.push(this.generateValue(dist));
         }
         const lastMean = this.currentSample.reduce((a, b) => a + b, 0) / this.currentSample.length;
-        document.getElementById('currentSampleMean').textContent = lastMean.toFixed(3);
         this.drawCurrentSample();
 
         document.getElementById('numSamplesValue').textContent = this.sampleMeans.length;
