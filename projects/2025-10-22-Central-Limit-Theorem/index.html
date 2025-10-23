@@ -349,37 +349,45 @@ class CLTSimulation {
         const ctx = canvas.getContext('2d');
         const pad = { top: 20, right: 20, bottom: 26, left: 40 };
         
-        // Generate population data
-        const data = [];
-        for (let i = 0; i < 10000; i++) {
-            data.push(this.generateValue(dist));
-        }
-
-        // Calculate population statistics
-        this.populationMean = data.reduce((a, b) => a + b, 0) / data.length;
-        const variance = data.reduce((a, b) => a + Math.pow(b - this.populationMean, 2), 0) / data.length;
-        this.populationSD = Math.sqrt(variance);
-
-        // Create histogram
+        // Use PDF for preset distributions instead of sampling
         const bins = 50;
         const histogram = new Array(bins).fill(0);
         const min = 0;
         const max = 10;
         const binWidth = (max - min) / bins;
 
-        data.forEach(value => {
-            const binIndex = Math.min(Math.floor((value - min) / binWidth), bins - 1);
-            if (binIndex >= 0) histogram[binIndex]++;
-        });
+        // Calculate PDF values for each bin
+        for (let i = 0; i < bins; i++) {
+            const x = min + (i + 0.5) * binWidth; // Center of bin
+            histogram[i] = this.getPDF(dist, x);
+        }
 
-        // Draw histogram with padding
+        // Calculate population statistics from the distribution
+        this.populationMean = 0;
+        let secondMoment = 0;
+        let totalDensity = 0;
+        
+        for (let i = 0; i < bins; i++) {
+            const x = min + (i + 0.5) * binWidth;
+            const density = histogram[i];
+            this.populationMean += x * density;
+            secondMoment += x * x * density;
+            totalDensity += density;
+        }
+        
+        this.populationMean /= totalDensity;
+        secondMoment /= totalDensity;
+        const variance = secondMoment - this.populationMean * this.populationMean;
+        this.populationSD = Math.sqrt(variance);
+
+        // Draw histogram
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        const maxCount = Math.max(...histogram) || 1;
+        const maxCount = Math.max(...histogram);
         const plotWidth = canvas.width - pad.left - pad.right;
         const plotHeight = canvas.height - pad.top - pad.bottom;
         const barWidth = plotWidth / bins;
 
-    ctx.fillStyle = '#636e72';
+        ctx.fillStyle = '#636e72';
         histogram.forEach((count, i) => {
             const barHeight = (count / maxCount) * plotHeight;
             const x = pad.left + i * barWidth;
@@ -405,6 +413,45 @@ class CLTSimulation {
         }
 
         this.updateExpectedSD();
+    }
+
+    // Get PDF value for preset distributions
+    getPDF(dist, x) {
+        switch(dist) {
+            case 'uniform':
+                return (x >= 0 && x <= 10) ? 0.1 : 0;
+            
+            case 'normal':
+                const mu = 5;
+                const sigma = 2;
+                return (1 / (sigma * Math.sqrt(2 * Math.PI))) * 
+                    Math.exp(-0.5 * Math.pow((x - mu) / sigma, 2));
+            
+            case 'exponential':
+                const lambda = 0.5; // rate parameter
+                return (x >= 0) ? lambda * Math.exp(-lambda * x) : 0;
+            
+            case 'bimodal':
+                const mu1 = 2, sigma1 = 1.5;
+                const mu2 = 8, sigma2 = 1.5;
+                const pdf1 = (1 / (sigma1 * Math.sqrt(2 * Math.PI))) * 
+                    Math.exp(-0.5 * Math.pow((x - mu1) / sigma1, 2));
+                const pdf2 = (1 / (sigma2 * Math.sqrt(2 * Math.PI))) * 
+                    Math.exp(-0.5 * Math.pow((x - mu2) / sigma2, 2));
+                return 0.5 * (pdf1 + pdf2);
+            
+            case 'skewed':
+                // Beta-like distribution (right skewed)
+                if (x < 0 || x > 10) return 0;
+                const normalized = x / 10; // normalize to [0,1]
+                const alpha = 2, beta = 5; // shape parameters
+                const betaFunc = 0.0333; // approximation for Beta(2,5)
+                return Math.pow(normalized, alpha - 1) * 
+                    Math.pow(1 - normalized, beta - 1) / betaFunc / 10;
+            
+            default:
+                return 0.1;
+        }
     }
 
     drawCurrentSample() {
