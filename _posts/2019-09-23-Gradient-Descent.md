@@ -4,7 +4,7 @@ title: How does Gradient Descent work?
 date: 2019-09-23
 description: Math Behind Gradient Descent
 tags: optimization, mathematics
-categories: theorectical
+categories: theoretical
 giscus_comments: false
 ---
 
