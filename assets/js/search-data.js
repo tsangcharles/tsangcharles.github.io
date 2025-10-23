@@ -128,6 +128,11 @@ ninja.data = [{
           description: "Interactive simulation demonstrating the Central Limit Theorem",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2025-10-22-Central-Limit-Theorem/";
+            },},{id: "projects-visualizing-overfitting-and-regularization-in-machine-learning",
+          title: 'Visualizing Overfitting and Regularization in Machine Learning',
+          description: "Interactive demo on Overfitting and Regularization",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/2025-10-23-Visualizing-Overfitting-and-Regularization/";
             },},{
         id: 'social-email',
         title: 'email',
