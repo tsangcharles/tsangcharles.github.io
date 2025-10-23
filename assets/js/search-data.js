@@ -123,6 +123,11 @@ ninja.data = [{
           description: "Building a Chrome Extension to Summarize YouTube Videos",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2025-10-21-Youtbe-Summarizer/";
+            },},{id: "projects-central-limit-theorem",
+          title: 'Central Limit Theorem',
+          description: "Interactive simulation demonstrating the Central Limit Theorem",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/2025-10-22-Central-Limit-Theorem/";
             },},{
         id: 'social-email',
         title: 'email',
