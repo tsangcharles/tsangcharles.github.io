@@ -246,6 +246,7 @@ canvas {
                 <option value="exponential">Exponential</option>
                 <option value="bimodal">Bimodal</option>
                 <option value="skewed">Right Skewed</option>
+                <option value="custom">Custom (Click to Draw)</option>
             </select>
         </div>
 
@@ -317,6 +318,8 @@ class CLTSimulation {
         this.seed = 12345; // Fixed seed for reproducibility
         this.currentSample = [];
         this.animatingDrop = false;
+        this.customDistribution = []; // Store custom distribution heights
+        this.isDrawingCustom = false;
         
         this.initializeControls();
         this.setupResize();
@@ -356,6 +359,24 @@ class CLTSimulation {
         document.getElementById('sample1000').addEventListener('click', () => this.drawSamples(1000));
         document.getElementById('reset').addEventListener('click', () => this.reset());
         document.getElementById('animate').addEventListener('click', () => this.toggleAnimation());
+
+        // Add mouse interaction for custom distribution
+        const popCanvas = document.getElementById('populationChart');
+        popCanvas.addEventListener('mousedown', (e) => this.startDrawingCustom(e));
+        popCanvas.addEventListener('mousemove', (e) => this.drawCustom(e));
+        popCanvas.addEventListener('mouseup', () => this.stopDrawingCustom());
+        popCanvas.addEventListener('mouseleave', () => this.stopDrawingCustom());
+        
+        // Touch support for mobile
+        popCanvas.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            this.startDrawingCustom(e.touches[0]);
+        });
+        popCanvas.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+            this.drawCustom(e.touches[0]);
+        });
+        popCanvas.addEventListener('touchend', () => this.stopDrawingCustom());
     }
 
     setupResize() {
@@ -420,6 +441,7 @@ class CLTSimulation {
     reset() {
         this.sampleMeans = [];
         this.currentSample = [];
+        this.customDistribution = []; // Reset custom distribution
         this.resetSeed(); // Reset seed for reproducibility
         if (this.animationId) {
             clearInterval(this.animationId);
@@ -448,9 +470,167 @@ class CLTSimulation {
                     this.boxMuller() * 1.5 + 8;
             case 'skewed':
                 return Math.pow(this.seededRandom(), 2) * 10;
+            case 'custom':
+                return this.generateFromCustom();
             default:
                 return this.seededRandom() * 10;
         }
+    }
+
+    generateFromCustom() {
+        if (this.customDistribution.length === 0) {
+            // If no custom distribution defined, return uniform
+            return this.seededRandom() * 10;
+        }
+
+        // Use rejection sampling to generate values from custom distribution
+        const maxHeight = Math.max(...this.customDistribution);
+        if (maxHeight === 0) return this.seededRandom() * 10;
+
+        let attempts = 0;
+        while (attempts < 100) {
+            const binIndex = Math.floor(this.seededRandom() * this.customDistribution.length);
+            const height = this.customDistribution[binIndex];
+            const acceptance = this.seededRandom() * maxHeight;
+            
+            if (acceptance <= height) {
+                // Convert bin index to value (0-10 range)
+                return (binIndex / this.customDistribution.length) * 10;
+            }
+            attempts++;
+        }
+        
+        // Fallback
+        return this.seededRandom() * 10;
+    }
+
+    startDrawingCustom(e) {
+        const dist = document.getElementById('distribution').value;
+        if (dist !== 'custom') return;
+
+        this.isDrawingCustom = true;
+        
+        // Initialize custom distribution if empty
+        if (this.customDistribution.length === 0) {
+            this.customDistribution = new Array(50).fill(0);
+        }
+        
+        this.drawCustom(e);
+    }
+
+    drawCustom(e) {
+        if (!this.isDrawingCustom) return;
+
+        const canvas = document.getElementById('populationChart');
+        const rect = canvas.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const pad = { top: 20, right: 20, bottom: 26, left: 40 };
+        const plotWidth = canvas.width - pad.left - pad.right;
+        const plotHeight = canvas.height - pad.top - pad.bottom;
+
+        // Convert to canvas coordinates
+        const canvasX = (x / rect.width) * canvas.width;
+        const canvasY = (y / rect.height) * canvas.height;
+
+        // Check if within plot area
+        if (canvasX < pad.left || canvasX > canvas.width - pad.right ||
+            canvasY < pad.top || canvasY > canvas.height - pad.bottom) {
+            return;
+        }
+
+        // Calculate bin index
+        const relX = canvasX - pad.left;
+        const binIndex = Math.floor((relX / plotWidth) * this.customDistribution.length);
+        
+        if (binIndex >= 0 && binIndex < this.customDistribution.length) {
+            // Set height based on mouse position (inverted y-axis)
+            const relY = canvas.height - pad.bottom - canvasY;
+            const height = Math.max(0, Math.min(plotHeight, relY));
+            this.customDistribution[binIndex] = height;
+            
+            // Smooth neighboring bins for nicer drawing
+            if (binIndex > 0) {
+                this.customDistribution[binIndex - 1] = 
+                    (this.customDistribution[binIndex - 1] * 2 + height) / 3;
+            }
+            if (binIndex < this.customDistribution.length - 1) {
+                this.customDistribution[binIndex + 1] = 
+                    (this.customDistribution[binIndex + 1] * 2 + height) / 3;
+            }
+            
+            this.drawPopulationCustom();
+        }
+    }
+
+    stopDrawingCustom() {
+        if (this.isDrawingCustom) {
+            this.isDrawingCustom = false;
+            // Recalculate population statistics after drawing
+            this.calculateCustomStats();
+        }
+    }
+
+    drawPopulationCustom() {
+        const canvas = document.getElementById('populationChart');
+        const ctx = canvas.getContext('2d');
+        const pad = { top: 20, right: 20, bottom: 26, left: 40 };
+        
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        const plotWidth = canvas.width - pad.left - pad.right;
+        const plotHeight = canvas.height - pad.top - pad.bottom;
+        const barWidth = plotWidth / this.customDistribution.length;
+
+        ctx.fillStyle = '#636e72';
+        this.customDistribution.forEach((height, i) => {
+            const x = pad.left + i * barWidth;
+            const y = canvas.height - pad.bottom - height;
+            ctx.fillRect(x, y, Math.max(1, barWidth - 1), height);
+        });
+
+        // Axis baseline
+        ctx.strokeStyle = '#bbb';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(pad.left, canvas.height - pad.bottom + 0.5);
+        ctx.lineTo(canvas.width - pad.right, canvas.height - pad.bottom + 0.5);
+        ctx.stroke();
+
+        // Draw axis labels
+        ctx.fillStyle = '#000';
+        ctx.font = '12px Arial';
+        ctx.textAlign = 'center';
+        for (let i = 0; i <= 10; i += 2) {
+            const x = pad.left + (i / 10) * plotWidth;
+            ctx.fillText(i.toString(), x, canvas.height - 6);
+        }
+
+        // Draw instruction text if distribution is empty
+        const totalHeight = this.customDistribution.reduce((a, b) => a + b, 0);
+        if (totalHeight < 10) {
+            ctx.fillStyle = '#999';
+            ctx.font = '14px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('Click and drag to draw your custom distribution', canvas.width / 2, canvas.height / 2);
+        }
+    }
+
+    calculateCustomStats() {
+        // Generate a large sample from the custom distribution to estimate mean and SD
+        const sampleSize = 10000;
+        const values = [];
+        
+        for (let i = 0; i < sampleSize; i++) {
+            values.push(this.generateFromCustom());
+        }
+        
+        this.populationMean = values.reduce((a, b) => a + b, 0) / values.length;
+        const variance = values.reduce((a, b) => a + Math.pow(b - this.populationMean, 2), 0) / values.length;
+        this.populationSD = Math.sqrt(variance);
+        
+        this.updateExpectedSD();
     }
 
     // Box-Muller transform for normal distribution
@@ -463,6 +643,16 @@ class CLTSimulation {
 
     drawPopulation() {
         const dist = document.getElementById('distribution').value;
+        
+        // If custom, draw custom distribution
+        if (dist === 'custom') {
+            if (this.customDistribution.length === 0) {
+                this.customDistribution = new Array(50).fill(0);
+            }
+            this.drawPopulationCustom();
+            return;
+        }
+        
         const canvas = document.getElementById('populationChart');
         const ctx = canvas.getContext('2d');
         const pad = { top: 20, right: 20, bottom: 26, left: 40 };
