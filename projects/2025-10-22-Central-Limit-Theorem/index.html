@@ -7,10 +7,24 @@ class CLTSimulation {
         this.populationMean = 0;
         this.populationSD = 1;
         this.animationId = null;
+        this.seed = 12345; // Fixed seed for reproducibility
         
         this.initializeControls();
         this.setupResize();
         this.drawPopulation();
+    }
+
+    // Seeded random number generator (Mulberry32)
+    seededRandom() {
+        this.seed = (this.seed + 0x6D2B79F5) | 0;
+        let t = Math.imul(this.seed ^ (this.seed >>> 15), 1 | this.seed);
+        t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    }
+
+    // Reset seed to initial value
+    resetSeed() {
+        this.seed = 12345;
     }
 
     initializeControls() {
@@ -85,6 +99,7 @@ class CLTSimulation {
 
     reset() {
         this.sampleMeans = [];
+        this.resetSeed(); // Reset seed for reproducibility
         if (this.animationId) {
             clearInterval(this.animationId);
             this.animationId = null;
@@ -100,27 +115,27 @@ class CLTSimulation {
     generateValue(dist) {
         switch(dist) {
             case 'uniform':
-                return Math.random() * 10;
+                return this.seededRandom() * 10;
             case 'normal':
                 return this.boxMuller() * 2 + 5;
             case 'exponential':
-                return -Math.log(Math.random()) * 2;
+                return -Math.log(this.seededRandom()) * 2;
             case 'bimodal':
-                return Math.random() < 0.5 ? 
+                return this.seededRandom() < 0.5 ? 
                     this.boxMuller() * 1.5 + 2 : 
                     this.boxMuller() * 1.5 + 8;
             case 'skewed':
-                return Math.pow(Math.random(), 2) * 10;
+                return Math.pow(this.seededRandom(), 2) * 10;
             default:
-                return Math.random() * 10;
+                return this.seededRandom() * 10;
         }
     }
 
     // Box-Muller transform for normal distribution
     boxMuller() {
         let u = 0, v = 0;
-        while(u === 0) u = Math.random();
-        while(v === 0) v = Math.random();
+        while(u === 0) u = this.seededRandom();
+        while(v === 0) v = this.seededRandom();
         return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
     }
 
