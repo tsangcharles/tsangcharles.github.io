@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Visualizing Overfitting and Regularization in Machine Learning
+title: Visualizing Overfitting and Regularization
 description: Interactive demo on Overfitting and Regularization
 importance: 3
 img: /assets/img/Overfitting.png
