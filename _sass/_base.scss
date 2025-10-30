@@ -441,6 +441,21 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
+.nintendo-icon {
+  filter: brightness(0) saturate(100%);
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 0.15em;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+html[data-theme="dark"] {
+  .nintendo-icon {
+    filter: brightness(0) saturate(100%) invert(1);
+  }
+}
+
 .wechat-modal {
   display: none;
   position: fixed;

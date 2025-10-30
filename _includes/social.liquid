@@ -42,12 +42,20 @@
       <a rel="me" href="https://{{ social[1] }}" title="Mastodon"><i class="fa-brands fa-mastodon"></i></a>
     {% when 'medium_username' %}
       <a href="https://medium.com/@{{ social[1] }}" title="Medium"><i class="fa-brands fa-medium"></i></a>
+    {% when 'nintendo_friend_code' %}
+      <a href="#" title="Nintendo: {{ social[1] }}" onclick="navigator.clipboard.writeText('{{ social[1] }}'); alert('Nintendo Friend Code {{ social[1] }} copied to clipboard!'); return false;">
+        <svg class="nintendo-icon" style="width: 1em; height: 1em;">
+          <image xlink:href="https://www.svgrepo.com/show/306477/nintendoswitch.svg" />
+        </svg>
+      </a>
     {% when 'orcid_id' %}
       <a href="https://orcid.org/{{ social[1] }}" title="ORCID"><i class="ai ai-orcid"></i></a>
     {% when 'osf_id' %}
       <a href="https://osf.io/{{ social[1] }}/" title="Open Science Framework"><i class="ai ai-osf"></i></a>
     {% when 'pinterest_id' %}
       <a href="https://www.pinterest.com/{{ social[1] }}" title="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+    {% when 'playstation_id' %}
+      <a href="https://profile.playstation.com/{{ social[1] }}" title="PlayStation"><i class="fa-brands fa-playstation"></i></a>
     {% when 'publons_id' %}
       <a href="https://publons.com/a/{{ social[1] }}/" title="Publons"><i class="ai ai-publons"></i></a>
     {% when 'quora_username' %}
@@ -66,6 +74,8 @@
       <a href="https://open.spotify.com/user/{{ social[1] }}" title="Spotify"><i class="fa-brands fa-spotify"></i></a>
     {% when 'stackoverflow_id' %}
       <a href="https://stackoverflow.com/users/{{ social[1] }}" title="Stackoverflow"><i class="fa-brands fa-stack-overflow"></i></a>
+    {% when 'steam_id' %}
+      <a href="https://steamcommunity.com/id/{{ social[1] }}" title="Steam"><i class="fa-brands fa-steam"></i></a>
     {% when 'strava_userid' %}
       <a href="https://www.strava.com/athletes/{{ social[1] }}" title="Strava"><i class="fa-brands fa-strava"></i></a>
     {% when 'telegram_username' %}
