@@ -162,6 +162,27 @@ ninja.data = [{
           window.open("", "_blank");
         },
       },{
+        id: 'social-steam_id',
+        title: 'Steam_id',
+        section: 'Socials',
+        handler: () => {
+          window.open("", "_blank");
+        },
+      },{
+        id: 'social-playstation_id',
+        title: 'Playstation_id',
+        section: 'Socials',
+        handler: () => {
+          window.open("", "_blank");
+        },
+      },{
+        id: 'social-nintendo_friend_code',
+        title: 'Nintendo_friend_code',
+        section: 'Socials',
+        handler: () => {
+          window.open("", "_blank");
+        },
+      },{
       id: 'light-theme',
       title: 'Change theme to light',
       description: 'Change the theme of the site to Light',
