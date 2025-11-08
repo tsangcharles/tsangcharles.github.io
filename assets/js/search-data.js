@@ -48,17 +48,6 @@ ninja.data = [{
             window.location.href = "/blog/2025/Past-and-Present-of-Data-Science/";
           
         },
-      },{id: "post-should-you-use-reinforcement-learning",
-        
-          title: "Should You Use Reinforcement Learning?",
-        
-        description: "Sharing my experience on reinforcement learning",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2021/reinforcement-learning/";
-          
-        },
       },{id: "post-sharing-my-thoughts-on-data-science-consulting",
         
           title: "Sharing my Thoughts on (Data Science) Consulting",
