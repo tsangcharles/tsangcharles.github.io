@@ -26,6 +26,6 @@ latest_posts:
 
 Charles works as a Data Scientist/AI Engineer, and is also a Data Science Lecturer for the [Master of Mathematical Finance program](https://www.mmf.utoronto.ca/) at the University of Toronto. Charles has previously worked at Instagram (Meta), Zynga, EY, and KPMG.
 
-Besides work, Charles is a big fan of Pokemon and Digimon. He enjoys playing Pokemon and Digimon Trading card games. In his free time, he also enjoys playing with yoyos and rockclimbing.
+Besides work, Charles is a big fan of Pokemon and Digimon. In his free time, he also enjoys playing basketball and soccer.
 
-Charles has a Golden Doodle named Pudding, he is very enegetic and rarely listens to commands. Charles also enjoys bubble tea, escape rooms, and board games a lot.
+Charles has a Golden Doodle named Pudding, he is very energetic and rarely listens to commands.
