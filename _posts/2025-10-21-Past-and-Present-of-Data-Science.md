@@ -11,14 +11,14 @@ giscus_comments: false
 
 <hr>
 
-🌟 **I became a data scientist in 2017, and the field has changed dramatically since.**
+**I became a data scientist in 2017, and the field has changed dramatically since.**
 
 I’m grateful that many people have read my 2019 post, [Types of Data Scientists](https://www.tsangcharles.com/blog/2019/Types-of-Data-Scientists/). Interviewers have brought it up, and students and job seekers often tell me it helped them. This post is a continuation—I hope readers continue to find this helpful.
 
 <hr>
 
 
-## 🔙 Looking back: from statistics to “data science”
+## Looking back: from statistics to “data science”
 
 Before the rise of “big data,” most people doing what we now call data science were statisticians or analysts. Data was growing but still relatively modest. The focus was on:
 
@@ -29,21 +29,21 @@ Before the rise of “big data,” most people doing what we now call data scien
 <hr>
 
 
-## 🌊 The big‑data wave (late 2000s–early 2010s)
+## The big‑data wave (late 2000s–early 2010s)
 
 A surge in cheap storage and distributed computing (MapReduce/Hadoop) plus the explosion of web and then mobile apps created unprecedented data volumes. Cloud platforms (e.g., AWS) made this scale accessible. Organizations raced to turn data exhaust into insight and advantage.
 
 <hr>
 
 
-## 🧑‍🔬 The modeling boom and academic roots
+## The modeling boom and academic roots
 
 Many machine learning algorithms predate the 2000s—neural nets and backpropagation go back decades—but limited compute held them back. By the early 2010s, GPUs and cloud made training at scale practical. Models were complex and required careful hyperparameter tuning, so companies hired highly technical practitioners—often PhDs—to push modeling performance and publishable R&D.
 
 <hr>
 
 
-## 🚀 From prototypes to production: the rise of MLOps (late‑2010s)
+## From prototypes to production: the rise of MLOps (late‑2010s)
 
 Success created a new problem: research‑grade code was being pushed to production without engineering or operational rigor. Practices for model deployment, monitoring, and lifecycle management emerged in the mid‑2010s; the “MLOps” term and dedicated tooling gained traction around 2018–2019. As tooling matured and models were packaged behind higher‑level APIs, the center of gravity shifted toward software engineering and operational skills.
 
@@ -55,7 +55,7 @@ Next, I’ll discuss where data science is now and where it’s headed.
 <hr>
 
 
-## 🧩 From generalist to specialist (late‑2010s → present)
+## From generalist to specialist (late‑2010s → present)
 
 As tooling matured and production expectations rose, roles split. There are fewer true generalists who can “do it all,” and many more specialists who go deep on a slice of the stack:
 
