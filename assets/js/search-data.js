@@ -30,18 +30,7 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/teaching/";
           },
-        },{id: "post-practical-ml-engineering",
-        
-          title: "Practical ML Engineering",
-        
-        description: "Lessons from building ML systems at scale - the gap between research and production.",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2025/Practical-ML-Engineering/";
-          
-        },
-      },{id: "post-past-and-present-of-data-science",
+        },{id: "post-past-and-present-of-data-science",
         
           title: "Past and Present of Data Science",
         
