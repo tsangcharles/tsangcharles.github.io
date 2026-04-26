@@ -30,7 +30,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/teaching/";
           },
-        },{id: "post-past-and-present-of-data-science",
+        },{id: "post-choosing-the-right-tool",
+        
+          title: "Choosing the Right Tool",
+        
+        description: "Tool selection matters more than solution-first thinking",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/Choosing-the-Right-Tool/";
+          
+        },
+      },{id: "post-past-and-present-of-data-science",
         
           title: "Past and Present of Data Science",
         
