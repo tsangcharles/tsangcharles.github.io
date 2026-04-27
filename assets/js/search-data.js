@@ -30,7 +30,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/teaching/";
           },
-        },{id: "post-choosing-the-right-tool",
+        },{id: "post-the-feedback-problem-in-machine-learning",
+        
+          title: "The Feedback Problem in Machine Learning",
+        
+        description: "When your model shapes the very data it learns from",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/The-Feedback-Problem-in-ML/";
+          
+        },
+      },{id: "post-choosing-the-right-tool",
         
           title: "Choosing the Right Tool",
         
