@@ -21,7 +21,7 @@ I recently learned of the passing of Professor Ian Graham, who taught graduate c
 
 Liouville's theorem states: **if a function is holomorphic on all of $$\mathbb{C}$$ and bounded, then it must be constant.**
 
-To be precise: a function $$f: \mathbb{C} \to \mathbb{C}$$ is called *entire* if it is holomorphic (complex differentiable) everywhere. Liouville's theorem says that if $$f$$ is entire and there exists $$M > 0$$ such that $$|f(z)| \leq M$$ for all $$z \in \mathbb{C}$$, then $$f$$ is constant.
+To be precise: a function $$f: \mathbb{C} \to \mathbb{C}$$ is called *entire* if it is holomorphic (complex differentiable) everywhere. Liouville's theorem says that if $$f$$ is entire and there exists $$M > 0$$ such that $$\lvert f(z) \rvert \leq M$$ for all $$z \in \mathbb{C}$$, then $$f$$ is constant.
 
 <hr>
 
@@ -53,7 +53,7 @@ Then you move to $$\mathbb{C}$$, adding exactly one extra real dimension. You re
 
 The reason is that holomorphicity — complex differentiability — is far more demanding than real differentiability. A real function is differentiable at a point if the limit of the difference quotient exists along the real line. A complex function is holomorphic at a point if that limit exists *regardless of the direction you approach from*: horizontally, vertically, diagonally, any angle. The derivative must be the same no matter how $$h \to 0$$ in $$\mathbb{C}$$. This condition, encoded in the Cauchy-Riemann equations, ties the real and imaginary parts of $$f$$ together tightly.
 
-That tightness propagates. An entire function is not just locally constrained — it's globally rigid. The value of $$f$$ on any small open set completely determines $$f$$ everywhere. And as the proof shows, Cauchy's machinery lets a global bound $$|f| \leq M$$ reach into every derivative, at every point, killing them all at once as the contour radius grows without limit.
+That tightness propagates. An entire function is not just locally constrained — it's globally rigid. The value of $$f$$ on any small open set completely determines $$f$$ everywhere. And as the proof shows, Cauchy's machinery lets a global bound $$\lvert f \rvert \leq M$$ reach into every derivative, at every point, killing them all at once as the contour radius grows without limit.
 
 What I find beautiful here is not the proof itself, but what the proof is telling you. The extra dimension doesn't just add structure. It changes the *nature* of differentiability so fundamentally that an intuition which was correct on $$\mathbb{R}$$ — bounded functions can do a lot of things — becomes completely wrong on $$\mathbb{C}$$. A bounded entire function has nowhere to go. It just has to sit still.
 
