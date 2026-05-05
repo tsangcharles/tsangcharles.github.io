@@ -30,7 +30,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/teaching/";
           },
-        },{id: "post-the-feedback-problem-in-machine-learning",
+        },{id: "post-the-ai-engineer-transition",
+        
+          title: "The AI Engineer Transition",
+        
+        description: "How AI is following the same pattern of abstraction that defined programming languages",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/The-AI-Engineer-Transition/";
+          
+        },
+      },{id: "post-the-feedback-problem-in-machine-learning",
         
           title: "The Feedback Problem in Machine Learning",
         
