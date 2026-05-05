@@ -30,9 +30,9 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/teaching/";
           },
-        },{id: "post-the-ai-engineer-transition",
+        },{id: "post-the-abstraction-pattern",
         
-          title: "The AI Engineer Transition",
+          title: "The Abstraction Pattern",
         
         description: "How AI is following the same pattern of abstraction that defined programming languages",
         section: "Posts",
