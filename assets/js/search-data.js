@@ -41,6 +41,17 @@ ninja.data = [{
             window.location.href = "/blog/2026/The-AI-Engineer-Transition/";
           
         },
+      },{id: "post-liouville-39-s-theorem-and-the-extra-dimension",
+        
+          title: "Liouville&#39;s Theorem and the Extra Dimension",
+        
+        description: "Why bounded and differentiable doesn&#39;t mean constant on the real line, but does on the complex plane",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/Liouvilles-Theorem/";
+          
+        },
       },{id: "post-the-feedback-problem-in-machine-learning",
         
           title: "The Feedback Problem in Machine Learning",
