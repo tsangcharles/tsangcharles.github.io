@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The AI Engineer Transition
+title: The Abstraction Pattern
 date: 2026-05-05
 description: How AI is following the same pattern of abstraction that defined programming languages
 tags: ai, engineering, career
