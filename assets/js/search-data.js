@@ -30,7 +30,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/teaching/";
           },
-        },{id: "post-the-abstraction-pattern",
+        },{id: "post-the-k-means-paradox",
+        
+          title: "The K-Means Paradox",
+        
+        description: "Why k-means is widely used in production despite its hardest problem being cluster interpretation",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/The-K-Means-Paradox/";
+          
+        },
+      },{id: "post-the-abstraction-pattern",
         
           title: "The Abstraction Pattern",
         
