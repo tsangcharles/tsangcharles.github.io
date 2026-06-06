@@ -10,7 +10,7 @@ nav_order: 5
 
 
 
-# 🧑‍🏫 Lecturer
+# Lecturer
 
 ---
 
@@ -26,7 +26,7 @@ nav_order: 5
 
 
 
-# 🧑‍💼 Teaching Assistant
+# Teaching Assistant
 
 ---
 
