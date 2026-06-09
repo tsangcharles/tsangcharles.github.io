@@ -24,8 +24,219 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Charles works as an AI Engineer, and is also a Data Science Lecturer for the [Master of Mathematical Finance program](https://www.mmf.utoronto.ca/) at the University of Toronto. Charles has previously worked at Instagram (Meta), Zynga, EY, and KPMG.
+Charles is a full-stack data generalist, equally comfortable wrangling pipelines, building models, and shipping AI-powered products. He also teaches as a Data Science Lecturer for the [Master of Mathematical Finance program](https://www.mmf.utoronto.ca/) at the University of Toronto. Charles has previously worked at Instagram (Meta), Zynga, EY, and KPMG.
 
 Besides work, Charles is a big fan of Pokemon and Digimon. In his free time, he also enjoys playing basketball and soccer.
 
 Charles has a Golden Doodle named Pudding, he is very energetic and rarely listens to commands.
+
+<style>
+.skills-clouds-section { margin: 2.5rem 0; }
+.skills-clouds-section h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem; color: inherit; }
+
+.clouds-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3.5rem 2rem;
+  padding-top: 52px;
+}
+@media (max-width: 600px) {
+  .clouds-grid { grid-template-columns: 1fr; }
+}
+
+.big-cloud {
+  position: relative;
+  border-radius: 30px;
+  padding: 1.1rem 1.4rem 1.4rem;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.09);
+}
+.big-cloud::before, .big-cloud::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+}
+.big-cloud::before { width: 72px; height: 72px; top: -26px; left: 24px; }
+.big-cloud::after  { width: 98px; height: 98px; top: -42px; left: 64px; }
+
+.cloud-se { background: #dbeafe; }
+.cloud-se::before, .cloud-se::after { background: #dbeafe; }
+.cloud-ds { background: #ede9fe; }
+.cloud-ds::before, .cloud-ds::after { background: #ede9fe; }
+.cloud-ml { background: #dcfce7; }
+.cloud-ml::before, .cloud-ml::after { background: #dcfce7; }
+.cloud-de { background: #ccfbf1; }
+.cloud-de::before, .cloud-de::after { background: #ccfbf1; }
+
+.big-cloud-label {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.small-clouds-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  padding-top: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.small-cloud {
+  position: relative;
+  border-radius: 14px;
+  padding: 0.28rem 0.72rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.11);
+  white-space: nowrap;
+}
+.small-cloud:hover { transform: translateY(-3px); box-shadow: 0 5px 14px rgba(0,0,0,0.17); }
+.small-cloud::before, .small-cloud::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+}
+.small-cloud::before { width: 15px; height: 15px; top: -7px;  left: 10px; }
+.small-cloud::after  { width: 21px; height: 21px; top: -11px; left: 20px; }
+.small-cloud span { position: relative; z-index: 1; }
+
+.cloud-se .small-cloud { background: #93c5fd; color: #1e3a5f; }
+.cloud-se .small-cloud::before, .cloud-se .small-cloud::after { background: #93c5fd; }
+.cloud-ds .small-cloud { background: #c4b5fd; color: #2e1065; }
+.cloud-ds .small-cloud::before, .cloud-ds .small-cloud::after { background: #c4b5fd; }
+.cloud-ml .small-cloud { background: #86efac; color: #14532d; }
+.cloud-ml .small-cloud::before, .cloud-ml .small-cloud::after { background: #86efac; }
+.cloud-de .small-cloud { background: #5eead4; color: #134e4a; }
+.cloud-de .small-cloud::before, .cloud-de .small-cloud::after { background: #5eead4; }
+
+/* Dark mode overrides */
+html[data-theme="dark"] .big-cloud { box-shadow: 0 6px 22px rgba(0,0,0,0.35); }
+
+html[data-theme="dark"] .cloud-se { background: #1e3a5f; }
+html[data-theme="dark"] .cloud-se::before, html[data-theme="dark"] .cloud-se::after { background: #1e3a5f; }
+html[data-theme="dark"] .cloud-ds { background: #2e1065; }
+html[data-theme="dark"] .cloud-ds::before, html[data-theme="dark"] .cloud-ds::after { background: #2e1065; }
+html[data-theme="dark"] .cloud-ml { background: #14532d; }
+html[data-theme="dark"] .cloud-ml::before, html[data-theme="dark"] .cloud-ml::after { background: #14532d; }
+html[data-theme="dark"] .cloud-de { background: #134e4a; }
+html[data-theme="dark"] .cloud-de::before, html[data-theme="dark"] .cloud-de::after { background: #134e4a; }
+
+html[data-theme="dark"] .big-cloud-label { color: #e5e7eb; }
+
+html[data-theme="dark"] .cloud-se .small-cloud { background: #3b82f6; color: #dbeafe; }
+html[data-theme="dark"] .cloud-se .small-cloud::before, html[data-theme="dark"] .cloud-se .small-cloud::after { background: #3b82f6; }
+html[data-theme="dark"] .cloud-ds .small-cloud { background: #7c3aed; color: #ede9fe; }
+html[data-theme="dark"] .cloud-ds .small-cloud::before, html[data-theme="dark"] .cloud-ds .small-cloud::after { background: #7c3aed; }
+html[data-theme="dark"] .cloud-ml .small-cloud { background: #16a34a; color: #dcfce7; }
+html[data-theme="dark"] .cloud-ml .small-cloud::before, html[data-theme="dark"] .cloud-ml .small-cloud::after { background: #16a34a; }
+html[data-theme="dark"] .cloud-de .small-cloud { background: #0d9488; color: #ccfbf1; }
+html[data-theme="dark"] .cloud-de .small-cloud::before, html[data-theme="dark"] .cloud-de .small-cloud::after { background: #0d9488; }
+
+.cloud-popup {
+  position: fixed;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 0.7rem 1rem;
+  max-width: 240px;
+  box-shadow: 0 10px 32px rgba(0,0,0,0.13);
+  font-size: 0.81rem;
+  line-height: 1.55;
+  color: #374151;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+  z-index: 9999;
+}
+.cloud-popup.visible { opacity: 1; }
+
+html[data-theme="dark"] .cloud-popup {
+  background: #2c3237;
+  border-color: #4b5563;
+  color: #e5e7eb;
+  box-shadow: 0 10px 32px rgba(0,0,0,0.4);
+}
+</style>
+
+<div class="skills-clouds-section">
+
+<div class="clouds-grid">
+
+  <div class="big-cloud cloud-ds">
+    <div class="big-cloud-label">Data Science</div>
+    <div class="small-clouds-group">
+      <div class="small-cloud" data-info="Spent several years at Meta working on Instagram, helping launch Intent Aware Ads and driving product decisions through deep data analysis. At Zynga, led continuous improvement efforts for Words with Friends. Comfortable going from raw data all the way to shaping the product roadmap."><span>Product Analytics</span></div>
+      <div class="small-cloud" data-info="Used Bayesian causal impact models to measure the effectiveness of marketing campaigns at Zynga, separating true lift from noise in the absence of clean A/B test conditions."><span>Statistics</span></div>
+      <div class="small-cloud" data-info="Crafted rigorous data analyses paired with clear, compelling visualizations to communicate product impact to stakeholders at Instagram and Zynga — turning complex findings into decisions."><span>Data Visualization</span></div>
+      <div class="small-cloud" data-info="Regularly presented data-driven findings to cross-functional stakeholders at Instagram and Zynga, translating technical analysis into clear narratives that influenced product and business decisions."><span>Communication</span></div>
+      <div class="small-cloud" data-info="Acted as the subject matter expert for experiment design and A/B testing at Instagram and Zynga — guiding teams through test setup, sample sizing, and interpretation to confidently ship products."><span>A/B Testing</span></div>
+      <div class="small-cloud" data-info="Wrote efficient, optimized queries against massive datasets at Instagram and Zynga to surface product insights that directly shaped roadmap decisions."><span>SQL</span></div>
+    </div>
+  </div>
+
+  <div class="big-cloud cloud-de">
+    <div class="big-cloud-label">Data Engineering</div>
+    <div class="small-clouds-group">
+      <div class="small-cloud" data-info="Maintained and updated data warehouse tables at Zynga, ensuring clean, reliable data was available for downstream analytics and reporting."><span>Data Warehousing</span></div>
+      <div class="small-cloud" data-info="Built and maintained data pipelines at Zynga and for consulting clients at EY, automating the flow and transformation of data to keep downstream systems accurate and up to date."><span>Data Pipelines</span></div>
+      <div class="small-cloud" data-info="Used Spark at EY for a consulting client to transform large datasets in a distributed fashion on Hadoop, enabling high-speed processing of big data that would be impractical to run conventionally."><span>Spark</span></div>
+      <div class="small-cloud" data-info="Designed and implemented data models at EY for a consulting client, structuring data into clean, queryable schemas that made downstream analytics reliable and efficient."><span>Data Modeling</span></div>
+    </div>
+  </div>
+
+  <div class="big-cloud cloud-se">
+    <div class="big-cloud-label">Software Engineering</div>
+    <div class="small-clouds-group">
+      <div class="small-cloud" data-info="Built a large-scale LLM-powered platform that ingests PDF documents and extracts structured data at speed — designed for high throughput, scalability, and seamless integration with downstream systems."><span>AI Engineering</span></div>
+      <div class="small-cloud" data-info="Wrote production-grade Python powering a high-throughput LLM platform — async pipelines, concurrent document ingestion, robust error handling, and clean abstractions built to run reliably at scale."><span>Python Programming</span></div>
+      <div class="small-cloud" data-info="Designed and built the backend API layer for the LLM extraction platform, exposing clean, reliable endpoints for document ingestion and structured data retrieval to downstream consumers."><span>API Design</span></div>
+      <div class="small-cloud" data-info="Architected the end-to-end system design for the LLM extraction platform — from ingestion and processing topology to storage and API layers, with scalability and fault tolerance built in from the ground up."><span>Systems Design</span></div>
+    </div>
+  </div>
+
+  <div class="big-cloud cloud-ml">
+    <div class="big-cloud-label">Machine Learning</div>
+    <div class="small-clouds-group">
+      <div class="small-cloud" data-info="Extensive experience across the ML spectrum — from supervised learning for predicting user LTV and extracting feature importance for product insights, to productizing classification models, to unsupervised clustering for user segmentation, to reinforcement learning for a banking client at EY."><span>ML Modeling</span></div>
+      <div class="small-cloud" data-info="Implemented MLflow for experiment tracking and model monitoring, and deployed production ML models using Amazon SageMaker — keeping models reliable, observable, and maintainable after launch."><span>MLOps</span></div>
+      <div class="small-cloud" data-info="Invested heavily in feature engineering for supervised learning models — iterating on feature construction and selection to squeeze out meaningful gains in model performance."><span>Feature Engineering</span></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="cloud-popup" id="cloudPopup"></div>
+
+<script>
+(function () {
+  var popup = document.getElementById('cloudPopup');
+  document.querySelectorAll('.small-cloud').forEach(function (el) {
+    el.addEventListener('mouseenter', function (e) {
+      popup.textContent = el.getAttribute('data-info');
+      popup.classList.add('visible');
+      move(e);
+    });
+    el.addEventListener('mousemove', move);
+    el.addEventListener('mouseleave', function () {
+      popup.classList.remove('visible');
+    });
+  });
+  function move(e) {
+    var pw = 240, ph = popup.offsetHeight || 90, m = 14;
+    var left = e.clientX + m, top = e.clientY - ph / 2;
+    if (left + pw > window.innerWidth)  left = e.clientX - pw - m;
+    if (top < 8)                         top = 8;
+    if (top + ph > window.innerHeight)   top = window.innerHeight - ph - 8;
+    popup.style.left = left + 'px';
+    popup.style.top  = top  + 'px';
+  }
+})();
+</script>
+
+</div>
