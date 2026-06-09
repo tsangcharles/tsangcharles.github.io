@@ -132,41 +132,41 @@ html[data-theme="dark"] .cloud-popup {
   <div class="big-cloud cloud-ds">
     <div class="big-cloud-label">Data Science</div>
     <div class="small-clouds-group">
-      <div class="small-cloud" data-info="Spent several years at Meta working on Instagram, helping launch Intent Aware Ads and driving product decisions through deep data analysis. At Zynga, led continuous improvement efforts for Words with Friends. Comfortable going from raw data all the way to shaping the product roadmap.">\1</div>
-      <div class="small-cloud" data-info="Used Bayesian causal impact models to measure the effectiveness of marketing campaigns at Zynga, separating true lift from noise in the absence of clean A/B test conditions.">\1</div>
-      <div class="small-cloud" data-info="Crafted rigorous data analyses paired with clear, compelling visualizations to communicate product impact to stakeholders at Instagram and Zynga — turning complex findings into decisions.">\1</div>
-      <div class="small-cloud" data-info="Regularly presented data-driven findings to cross-functional stakeholders at Instagram and Zynga, translating technical analysis into clear narratives that influenced product and business decisions.">\1</div>
-      <div class="small-cloud" data-info="Acted as the subject matter expert for experiment design and A/B testing at Instagram and Zynga — guiding teams through test setup, sample sizing, and interpretation to confidently ship products.">\1</div>
-      <div class="small-cloud" data-info="Wrote efficient, optimized queries against massive datasets at Instagram and Zynga to surface product insights that directly shaped roadmap decisions.">\1</div>
+      <div class="small-cloud" data-info="Spent several years at Meta working on Instagram, helping launch Intent Aware Ads and driving product decisions through deep data analysis. At Zynga, led continuous improvement efforts for Words with Friends. Comfortable going from raw data all the way to shaping the product roadmap.">Product Analytics</div>
+      <div class="small-cloud" data-info="Used Bayesian causal impact models to measure the effectiveness of marketing campaigns at Zynga, separating true lift from noise in the absence of clean A/B test conditions.">Statistics</div>
+      <div class="small-cloud" data-info="Crafted rigorous data analyses paired with clear, compelling visualizations to communicate product impact to stakeholders at Instagram and Zynga — turning complex findings into decisions.">Data Visualization</div>
+      <div class="small-cloud" data-info="Regularly presented data-driven findings to cross-functional stakeholders at Instagram and Zynga, translating technical analysis into clear narratives that influenced product and business decisions.">Communication</div>
+      <div class="small-cloud" data-info="Acted as the subject matter expert for experiment design and A/B testing at Instagram and Zynga — guiding teams through test setup, sample sizing, and interpretation to confidently ship products.">A/B Testing</div>
+      <div class="small-cloud" data-info="Wrote efficient, optimized queries against massive datasets at Instagram and Zynga to surface product insights that directly shaped roadmap decisions.">SQL</div>
     </div>
   </div>
 
   <div class="big-cloud cloud-de">
     <div class="big-cloud-label">Data Engineering</div>
     <div class="small-clouds-group">
-      <div class="small-cloud" data-info="Maintained and updated data warehouse tables at Zynga, ensuring clean, reliable data was available for downstream analytics and reporting.">\1</div>
-      <div class="small-cloud" data-info="Built and maintained data pipelines at Zynga and for consulting clients at EY, automating the flow and transformation of data to keep downstream systems accurate and up to date.">\1</div>
-      <div class="small-cloud" data-info="Used Spark at EY for a consulting client to transform large datasets in a distributed fashion on Hadoop, enabling high-speed processing of big data that would be impractical to run conventionally.">\1</div>
-      <div class="small-cloud" data-info="Designed and implemented data models at EY for a consulting client, structuring data into clean, queryable schemas that made downstream analytics reliable and efficient.">\1</div>
+      <div class="small-cloud" data-info="Maintained and updated data warehouse tables at Zynga, ensuring clean, reliable data was available for downstream analytics and reporting.">Data Warehousing</div>
+      <div class="small-cloud" data-info="Built and maintained data pipelines at Zynga and for consulting clients at EY, automating the flow and transformation of data to keep downstream systems accurate and up to date.">Data Pipelines</div>
+      <div class="small-cloud" data-info="Used Spark at EY for a consulting client to transform large datasets in a distributed fashion on Hadoop, enabling high-speed processing of big data that would be impractical to run conventionally.">Spark</div>
+      <div class="small-cloud" data-info="Designed and implemented data models at EY for a consulting client, structuring data into clean, queryable schemas that made downstream analytics reliable and efficient.">Data Modeling</div>
     </div>
   </div>
 
   <div class="big-cloud cloud-se">
     <div class="big-cloud-label">Software Engineering</div>
     <div class="small-clouds-group">
-      <div class="small-cloud" data-info="Built a large-scale LLM-powered platform that ingests PDF documents and extracts structured data at speed — designed for high throughput, scalability, and seamless integration with downstream systems.">\1</div>
-      <div class="small-cloud" data-info="Wrote production-grade Python powering a high-throughput LLM platform — async pipelines, concurrent document ingestion, robust error handling, and clean abstractions built to run reliably at scale.">\1</div>
-      <div class="small-cloud" data-info="Designed and built the backend API layer for the LLM extraction platform, exposing clean, reliable endpoints for document ingestion and structured data retrieval to downstream consumers.">\1</div>
-      <div class="small-cloud" data-info="Architected the end-to-end system design for the LLM extraction platform — from ingestion and processing topology to storage and API layers, with scalability and fault tolerance built in from the ground up.">\1</div>
+      <div class="small-cloud" data-info="Built a large-scale LLM-powered platform that ingests PDF documents and extracts structured data at speed — designed for high throughput, scalability, and seamless integration with downstream systems.">AI Engineering</div>
+      <div class="small-cloud" data-info="Wrote production-grade Python powering a high-throughput LLM platform — async pipelines, concurrent document ingestion, robust error handling, and clean abstractions built to run reliably at scale.">Python Programming</div>
+      <div class="small-cloud" data-info="Designed and built the backend API layer for the LLM extraction platform, exposing clean, reliable endpoints for document ingestion and structured data retrieval to downstream consumers.">API Design</div>
+      <div class="small-cloud" data-info="Architected the end-to-end system design for the LLM extraction platform — from ingestion and processing topology to storage and API layers, with scalability and fault tolerance built in from the ground up.">Systems Design</div>
     </div>
   </div>
 
   <div class="big-cloud cloud-ml">
     <div class="big-cloud-label">Machine Learning</div>
     <div class="small-clouds-group">
-      <div class="small-cloud" data-info="Extensive experience across the ML spectrum — from supervised learning for predicting user LTV and extracting feature importance for product insights, to productizing classification models, to unsupervised clustering for user segmentation, to reinforcement learning for a banking client at EY.">\1</div>
-      <div class="small-cloud" data-info="Implemented MLflow for experiment tracking and model monitoring, and deployed production ML models using Amazon SageMaker — keeping models reliable, observable, and maintainable after launch.">\1</div>
-      <div class="small-cloud" data-info="Invested heavily in feature engineering for supervised learning models — iterating on feature construction and selection to squeeze out meaningful gains in model performance.">\1</div>
+      <div class="small-cloud" data-info="Extensive experience across the ML spectrum — from supervised learning for predicting user LTV and extracting feature importance for product insights, to productizing classification models, to unsupervised clustering for user segmentation, to reinforcement learning for a banking client at EY.">ML Modeling</div>
+      <div class="small-cloud" data-info="Implemented MLflow for experiment tracking and model monitoring, and deployed production ML models using Amazon SageMaker — keeping models reliable, observable, and maintainable after launch.">MLOps</div>
+      <div class="small-cloud" data-info="Invested heavily in feature engineering for supervised learning models — iterating on feature construction and selection to squeeze out meaningful gains in model performance.">Feature Engineering</div>
     </div>
   </div>
 
