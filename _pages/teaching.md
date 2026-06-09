@@ -2,13 +2,22 @@
 layout: page
 permalink: /teaching/
 title: teaching
-description: I have taught a lot of courses
+description: Teaching philosophy and course history across mathematics, statistics, and data science
 nav: true
 nav_order: 5
 ---
 
+# Teaching Philosophy
 
+I start with examples. Always. Not because the formal definition is unimportant, but because an abstract definition with no referent is just notation. Students can memorize it, repeat it on an exam, and still have no idea what they actually learned. The example is what gives the definition somewhere to live.
 
+This applies at every level I've taught — from first-year calculus to graduate data science. Before I introduce a concept, I try to put students in a position where they feel the need for it. What problem does this tool solve? What were we unable to do before it existed? Once that question is alive in the room, the definition stops being arbitrary and starts being inevitable.
+
+The second thing I try to do is connect the material to where it actually shows up. This is harder than it sounds. It's easy to write "applications" on a slide and show a textbook example. It's much harder to help students feel that what they're learning is a genuine tool for understanding something real. My time in industry — working on ads systems, fraud detection, customer analytics — gave me a clearer picture of what actually matters in practice, and I try to bring that into the classroom wherever I can. Not to make courses vocational, but to give students a reason to care.
+
+The tension I find hardest to navigate, especially in data science, is depth versus breadth. The field touches everything: statistics, optimization, software engineering, domain knowledge. A course could expand infinitely and still have gaps. My resolution is to go broad deliberately. Depth is something students can pursue on their own — and with AI tools available today, going deep on any topic has never been more accessible. What's harder to acquire alone is the map: knowing what exists, what connects to what, and where to look when you need something. That's what a course can give that self-study struggles to replicate. I pair that breadth with my own experience in industry, so students don't just see the landscape abstractly but understand where each piece actually gets used.
+
+---
 
 # Lecturer
 
