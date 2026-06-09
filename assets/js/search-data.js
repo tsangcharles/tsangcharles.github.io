@@ -170,6 +170,11 @@ ninja.data = [{
           description: "Interactive demo on Overfitting and Regularization",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2025-10-23-Visualizing-Overfitting-and-Regularization/";
+            },},{id: "projects-neural-style-transfer",
+          title: 'Neural Style Transfer',
+          description: "Upload a photo and a style image — stylize in the browser using fast neural style transfer",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/2026-06-09-Neural-Style-Transfer/";
             },},{
         id: 'social-email',
         title: 'email',
