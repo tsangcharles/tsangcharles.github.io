@@ -30,7 +30,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/teaching/";
           },
-        },{id: "post-the-k-means-paradox",
+        },{id: "post-causal-impact-for-product-data-science",
+        
+          title: "Causal Impact for Product Data Science",
+        
+        description: "Notes on causal inference for product data science — difference-in-differences, Bayesian structural time series, and what it&#39;s actually like using Google&#39;s CausalImpact package without attribution data",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/Causal-Impact-for-Product-Data-Science/";
+          
+        },
+      },{id: "post-the-k-means-paradox",
         
           title: "The K-Means Paradox",
         
