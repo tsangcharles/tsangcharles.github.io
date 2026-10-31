@@ -30,7 +30,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/teaching/";
           },
-        },{id: "post-causal-impact-for-product-data-science",
+        },{id: "post-quot-i-don-39-t-know-ai-wrote-it-quot",
+        
+          title: "&quot;I Don&#39;t Know, AI Wrote It&quot;",
+        
+        description: "AI is a neutral tool, but you still own what you ship with it",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/AI-Wrote-It/";
+          
+        },
+      },{id: "post-causal-impact-for-product-data-science",
         
           title: "Causal Impact for Product Data Science",
         
